@@ -24,7 +24,7 @@ export function PublicationsSkeleton({ count = 3 }: { count?: number }) {
                   className={cn(
                     "h-5 shrink-0",
                     index === 0
-                      ? "w-52"
+                      ? "w-32"
                       : index === 1
                         ? "w-46"
                         : index === 2
