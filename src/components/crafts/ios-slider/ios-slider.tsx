@@ -159,13 +159,17 @@ export function IosSlider({
   return (
     <motion.div
       ref={containerRef}
-      className="relative flex h-56 w-22 touch-none items-end justify-center overflow-hidden rounded-full bg-ios-slider-bg shadow-[0_0_20px_rgba(255,255,255,0.05),inset_0_2px_0_rgba(255,255,255,0.1)] outline-1 outline-gray-200 select-none focus:ring-2 focus:ring-blue-500 dark:outline-none"
+      className="relative flex h-56 w-22 touch-none items-end justify-center overflow-hidden rounded-full bg-ios-slider-bg shadow-[0_0_20px_rgba(255,255,255,0.05),inset_0_2px_0_rgba(255,255,255,0.05)] outline-1 outline-gray-200 backdrop-blur-sm select-none focus:ring-2 focus:ring-blue-500 dark:outline-none"
       style={{
         scaleY: containerScaleY,
         scaleX: containerScaleX,
         transformOrigin,
       }}
       role="slider"
+      aria-orientation="vertical"
+      aria-valuenow={value}
+      aria-valuemin={min}
+      aria-valuemax={max}
       tabIndex={0}
       onMouseLeave={resetStretch}
       onBlur={resetStretch}
@@ -176,7 +180,7 @@ export function IosSlider({
       onKeyDown={onKeyDown}
     >
       <ProgressBar value={value} min={min} max={max} />
-      <div className="pointer-events-none absolute bottom-[20px] left-1/2 -translate-x-1/2 text-ios-slider-icon">
+      <div className="text-ios-slider-icon pointer-events-none absolute bottom-[20px] left-1/2 -translate-x-1/2">
         {icon}
       </div>
       <input
@@ -184,7 +188,7 @@ export function IosSlider({
         type="range"
         min={min}
         max={max}
-        step={0.001}
+        step={0.1}
         value={value}
         onChange={onInputChange}
         className="absolute inset-0 h-full w-full appearance-none opacity-0 [writing-mode:vertical-lr]"

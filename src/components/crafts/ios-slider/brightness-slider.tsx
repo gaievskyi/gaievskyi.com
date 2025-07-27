@@ -21,7 +21,7 @@ export function BrightnessSlider() {
           name="sprite:sun2"
           className={cn(
             "size-11 transition-colors duration-300 ease-in-out",
-            value < 10 ? "text-gray-500" : "text-ios-slider-icon",
+            value < 10 ? "text-gray-500" : "text-ios-sun",
           )}
         />
       }

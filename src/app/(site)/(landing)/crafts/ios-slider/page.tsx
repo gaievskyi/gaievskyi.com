@@ -11,10 +11,7 @@ export default function IosSliderPage() {
       previous={{ title: "Radial Menu", href: "/crafts/radial-menu" }}
       next={{ title: "Fractional Slider", href: "/crafts/fractional-slider" }}
     >
-      {/* <div className="flex gap-6"> */}
       <BrightnessSlider />
-      {/* <VolumeSlider /> */}
-      {/* </div> */}
     </ComponentDemoLayout>
   )
 }
