@@ -1,5 +1,6 @@
 import { ComponentDemoLayout } from "@/components/crafts/component-demo-layout"
-import { IosSlider } from "@/components/crafts/ios-slider"
+import { BrightnessSlider } from "@/components/crafts/ios-slider/brightness-slider"
+// import { VolumeSlider } from "@/components/crafts/ios-slider/volume-slider"
 
 export default function IosSliderPage() {
   return (
@@ -10,7 +11,10 @@ export default function IosSliderPage() {
       previous={{ title: "Radial Menu", href: "/crafts/radial-menu" }}
       next={{ title: "Fractional Slider", href: "/crafts/fractional-slider" }}
     >
-      <IosSlider defaultValue={45} />
+      {/* <div className="flex gap-6"> */}
+      <BrightnessSlider />
+      {/* <VolumeSlider /> */}
+      {/* </div> */}
     </ComponentDemoLayout>
   )
 }
