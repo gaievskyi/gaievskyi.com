@@ -2,8 +2,10 @@ import pendingWalletTransactionsVideo from "@/videos/pending-wallet-transactions
 import dynamicIslandVideo from "@/videos/dynamic-island.mp4"
 import vercelBadgeVideo from "@/videos/vercel-badge.mp4"
 import radialMenuVideo from "@/videos/radial-menu.mp4"
+import iosSliderVideo from "@/videos/ios-slider.mp4"
 
 export const labsMap = {
+  "ios-slider": iosSliderVideo,
   "radial-menu": radialMenuVideo,
   "dynamic-island": dynamicIslandVideo,
   "vercel-badge": vercelBadgeVideo,
