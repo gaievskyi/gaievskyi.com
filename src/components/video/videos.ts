@@ -5,12 +5,10 @@ import dasGruneVideo from "@/videos/das-grune.mp4"
 import jamstackVideo from "@/videos/jamstack.mp4"
 import portfolioVideo from "@/videos/portfolio.mp4"
 import videoPlayerVideo from "@/videos/video-player.mp4"
-import aurelicVideo from "@/videos/aurelic.mp4"
 import galleryVideo from "@/videos/gallery.mp4"
 
 export const videosMap = {
   gallery: galleryVideo,
-  aurelic: aurelicVideo,
   captura: capturaVideo,
   "digital-agency": dasGruneVideo,
   jamstack: jamstackVideo,
