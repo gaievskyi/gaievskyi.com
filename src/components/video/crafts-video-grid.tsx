@@ -1,8 +1,8 @@
-import { labsMap } from "@/components/video/labs-videos"
+import { craftsMap } from "@/components/video/crafts-videos"
 import { Video } from "@/components/video/video"
 import { cn } from "@/lib/utils"
 
-const videos = Object.entries(labsMap)
+const videos = Object.entries(craftsMap)
 
 export function CraftsVideoGrid({ className }: { className?: string }) {
   return (
