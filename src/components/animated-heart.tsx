@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 import Image from "next/image"
 
 type FloatingHeart = {
-  id: string
+  id: number
   x: number
   y: number
   scale: number
@@ -16,7 +16,6 @@ type FloatingHeart = {
 export function AnimatedHeart({ className }: { className?: string }) {
   const [hearts, setHearts] = useState<FloatingHeart[]>([])
   const [isHovering, setIsHovering] = useState(false)
-  const [heartCounter, setHeartCounter] = useState(0)
 
   const spawnHearts = () => {
     const newHearts: FloatingHeart[] = []
@@ -24,16 +23,14 @@ export function AnimatedHeart({ className }: { className?: string }) {
 
     for (let i = 0; i < heartCount; i++) {
       newHearts.push({
-        id: `heart-${heartCounter + i}`,
-        x: (Math.random() - 0.5) * 120,
-        y: -20 - Math.random() * 40,
-        scale: 1 + Math.random() * 1.2,
-        duration: 1.5 + Math.random() * 0.5,
-        delay: i * 0.1,
+        id: Date.now() + i,
+        x: (Math.random() - 0.5) * 120, // Random spread
+        y: -20 - Math.random() * 40, // Upward direction
+        scale: 1 + Math.random() * 1.2, // Random size
+        duration: 1.5 + Math.random() * 0.5, // Random duration
+        delay: i * 0.1, // Staggered spawn
       })
     }
-
-    setHeartCounter((prev) => prev + heartCount)
 
     setHearts((prev) => [...prev, ...newHearts])
 
@@ -46,27 +43,18 @@ export function AnimatedHeart({ className }: { className?: string }) {
     }, 2500)
   }
 
-  const onClick = () => {
-    spawnHearts()
-  }
-
-  const onMouseEnter = () => {
-    setIsHovering(true)
-    spawnHearts()
-  }
-
-  const onMouseLeave = () => {
-    setIsHovering(false)
-  }
-
   return (
-    <button
-      type="button"
+    <span
       aria-label="Heart"
       className={cn("relative inline-block select-none", className)}
-      onClick={onClick}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
+      onClick={() => {
+        spawnHearts()
+      }}
+      onMouseEnter={() => {
+        setIsHovering(true)
+        spawnHearts()
+      }}
+      onMouseLeave={() => setIsHovering(false)}
     >
       <Image
         src="/images/red-heart.png"
@@ -102,6 +90,6 @@ export function AnimatedHeart({ className }: { className?: string }) {
           </span>
         ))}
       </span>
-    </button>
+    </span>
   )
 }
