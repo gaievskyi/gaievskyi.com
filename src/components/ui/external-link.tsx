@@ -20,7 +20,7 @@ export const ExternalLink = ({
     <Icon
       name="sprite:external-link"
       className={cn(
-        "text-black/40 stroke-current dark:text-muted-foreground",
+        "size-3.5 text-black/40 stroke-current dark:text-muted-foreground",
         iconClassName,
       )}
     />

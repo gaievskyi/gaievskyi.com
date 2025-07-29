@@ -1,3 +1,4 @@
+import { Icon } from "@/components/ui/icon"
 import { Flex } from "@/components/ui/layout/flex"
 import { Heading } from "@/components/ui/typography/heading"
 import { Text } from "@/components/ui/typography/text"
@@ -7,14 +8,13 @@ export function Contact() {
     <Flex direction="col" gap="xl" className="mt-4">
       <Text size="sm" color="muted">
         If you share this vision, and are looking for a partner to push your
-        product forward, reach out at{" "}
+        product forward, <br /> reach out at{" "}
         <a
           href="mailto:daniel@gaievskyi.com"
           className="hover:text-brand font-medium underline decoration-1"
         >
-          daniel@gaievskyi.com
+          daniel@gaievskyi.com <Icon name="sprite:arrow2" />
         </a>
-        .
       </Text>
       <Heading as="h2" size="sm" color="muted">
         Based in Poland, available remotely worldwide.

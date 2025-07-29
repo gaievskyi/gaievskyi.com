@@ -18,7 +18,7 @@ export function About() {
             href="https://x.com/dgaievskyi"
             className="dark:text-muted-foreground"
           >
-            Twitter
+            X
           </ExternalLink>
           ,{" "}
           <ExternalLink
@@ -44,9 +44,9 @@ export function About() {
       </Text>
       <Text size="sm" color="muted">
         I like projects where design and code naturally flow together, so that
-        nothing gets{" "}
+        nothing gets missed{" "}
         <Text as="span" italic color="muted">
-          missed during implementation
+          during implementation
         </Text>
         .
       </Text>

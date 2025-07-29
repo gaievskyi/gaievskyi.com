@@ -196,7 +196,6 @@
   .icon-x,
   .icon-y {
     @apply select-none fill-current inline-block text-inherit box-content;
-    vertical-align: -0.2em;
   }
 
   .icon,
