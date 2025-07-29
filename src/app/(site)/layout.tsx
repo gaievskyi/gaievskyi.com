@@ -60,6 +60,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: url,
   },
+  formatDetection: {
+    telephone: false,
+    address: false,
+    email: false,
+  },
 }
 
 export const viewport = {
