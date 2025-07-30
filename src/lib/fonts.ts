@@ -19,14 +19,15 @@ export const heldaneText = localFont({
   display: "swap",
   src: [
     {
-      path: "../../public/fonts/heldane/HeldaneTextRegular.woff",
+      path: "../../public/fonts/heldane/HeldaneText-Regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../../public/fonts/heldane/HeldaneTextRegularItalic.woff",
+      path: "../../public/fonts/heldane/HeldaneText-RegularItalic.woff2",
       weight: "400",
       style: "italic",
     },
   ],
 })
+

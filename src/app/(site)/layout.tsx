@@ -31,14 +31,20 @@ export const metadata: Metadata = {
     "portfolio",
     "software developer",
     "software engineer",
-    "technology",
-    "computer science",
   ],
   authors: [{ name: "Daniel Gaievskyi", url }],
   creator: "Daniel Gaievskyi",
   publisher: "Daniel Gaievskyi",
   metadataBase: new URL(url),
   openGraph: {
+    images: [
+      {
+        url: `/images/opengraph-image.png`,
+        alt: "Daniel Gaievskyi",
+        width: 834,
+        height: 446,
+      },
+    ],
     siteName: "@dgaievskyi",
     type: "website",
     locale: "en_US",
@@ -47,10 +53,10 @@ export const metadata: Metadata = {
   twitter: {
     images: [
       {
-        url: `/opengraph-image.png`,
+        url: `/images/opengraph-image.png`,
         alt: "Daniel Gaievskyi",
-        width: 1920,
-        height: 1080,
+        width: 834,
+        height: 446,
       },
     ],
     card: "summary_large_image",
