@@ -180,6 +180,9 @@
     content: "-";
     @apply absolute -left-2 text-zinc-600 dark:text-zinc-400;
   }
+  .article ol {
+    padding-left: 0;
+  }
   .article ol > li::marker {
     content: none;
   }
