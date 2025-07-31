@@ -1,6 +1,7 @@
 import { ComponentDemoLayout } from "@/components/crafts/component-demo-layout"
 import { DynamicIsland } from "@/components/crafts/dynamic-island/dynamic-island"
 import { Iphone15Pro } from "@/components/crafts/dynamic-island/iphone-15-pro"
+import { craftsMap } from "@/components/video/crafts-videos"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
     url: "/crafts/dynamic-island",
     images: [
       {
-        url: "https://image.mux.com/k2NTQLQroQAYH3YxvAzlnTnkuJiA9fAKzLeMc02n3YjY/thumbnail.png",
+        url: craftsMap["dynamic-island"].poster!,
         alt: "Dynamic Island",
         width: 1920,
         height: 1080,
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     images: [
       {
-        url: "https://image.mux.com/k2NTQLQroQAYH3YxvAzlnTnkuJiA9fAKzLeMc02n3YjY/thumbnail.png",
+        url: craftsMap["dynamic-island"].poster!,
         alt: "Dynamic Island",
         width: 1920,
         height: 1080,

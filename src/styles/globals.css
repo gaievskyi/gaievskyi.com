@@ -155,7 +155,7 @@
 @layer components {
   .article {
     margin-bottom: 4rem;
-    @apply prose prose-base max-w-none dark:prose-invert;
+    @apply prose prose-base max-w-prose dark:prose-invert;
     @apply prose-headings:font-medium prose-headings:leading-loose;
     @apply prose-h1:text-xl prose-h2:text-lg prose-h3:text-lg prose-h4:text-lg;
     @apply prose-p:text-base prose-p:leading-7 prose-p:text-zinc-600 dark:prose-p:text-[#bbbbbb];
@@ -173,14 +173,11 @@
     @apply dark:prose-hr:border-zinc-900 prose-hr:mt-16 prose-hr:mb-8;
   }
   .article ul > li {
-    @apply relative pl-4;
+    @apply relative pl-4 list-none;
   }
-  .article ul > li::marker {
+  .article ul > li::before {
     content: "-";
-  }
-  .dark .article ul > li::before {
-    @apply text-zinc-500;
-    @apply dark:prose-hr:border-zinc-800 prose-hr:mt-16 prose-hr:mb-8;
+    @apply absolute -left-2 text-zinc-600 dark:text-zinc-400;
   }
   .article em,
   .article i,

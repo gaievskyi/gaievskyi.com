@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { RadialMenuDemo } from "./radial-menu-demo"
 import { ComponentDemoLayout } from "@/components/crafts/component-demo-layout"
+import { craftsMap } from "@/components/video/crafts-videos"
 
 export const metadata: Metadata = {
   title: "Radial Menu",
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     url: "/crafts/radial-menu",
     images: [
       {
-        url: "https://image.mux.com/T1sxypWpc5JF2Xe1GVj00D00UCpZNR1EgFHBmxDZRm00iw/thumbnail.png?time=1.2",
+        url: craftsMap["radial-menu"].poster + "?time=1.2",
         alt: "Radial Menu",
         width: 1920,
         height: 1080,
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
   twitter: {
     images: [
       {
-        url: "https://image.mux.com/T1sxypWpc5JF2Xe1GVj00D00UCpZNR1EgFHBmxDZRm00iw/thumbnail.png?time=1.2",
+        url: craftsMap["radial-menu"].poster + "?time=1.2",
         alt: "Radial Menu",
         width: 1920,
         height: 1080,

@@ -1,5 +1,6 @@
 import { ComponentDemoLayout } from "@/components/crafts/component-demo-layout"
 import { PendingWalletTransactions } from "@/components/crafts/pending-wallet-transactions"
+import { craftsMap } from "@/components/video/crafts-videos"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     url: "/crafts/pending-wallet-transactions",
     images: [
       {
-        url: "https://image.mux.com/Gkh89hLJGcXesp75xQxrysOjmCgNdr3a1HbeRolSweY/thumbnail.png?time=0",
+        url: craftsMap["pending-wallet-transactions"].poster + "?time=0",
         alt: "Pending Wallet Transactions",
         width: 1920,
         height: 1080,
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
   twitter: {
     images: [
       {
-        url: "https://image.mux.com/Gkh89hLJGcXesp75xQxrysOjmCgNdr3a1HbeRolSweY/thumbnail.png?time=0",
+        url: craftsMap["pending-wallet-transactions"].poster + "?time=0",
         alt: "Pending Wallet Transactions",
         width: 1920,
         height: 1080,

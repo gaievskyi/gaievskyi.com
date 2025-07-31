@@ -23,7 +23,7 @@ export function BackAside({ children }: BackAsideProps) {
         </Link>
         {children}
       </aside>
-      <div className="fixed bottom-8 left-6 z-[51]">
+      <div className="fixed bottom-8 left-6 z-[51] hidden sm:block">
         <ThemeSwitch />
       </div>
     </>

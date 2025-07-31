@@ -1,4 +1,5 @@
 import { ComponentDemoLayout } from "@/components/crafts/component-demo-layout"
+import { craftsMap } from "@/components/video/crafts-videos"
 import type { Metadata } from "next"
 import dynamic from "next/dynamic"
 
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     url: "/crafts/vercel-badge",
     images: [
       {
-        url: "https://image.mux.com/65NSXM39p1009IVy9zoYmv4jL76lxzCEMnGnYox4Tloc/thumbnail.png?time=2.5",
+        url: craftsMap["vercel-badge"].poster + "?time=2.5",
         alt: "Vercel Badge",
         width: 1920,
         height: 1080,
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     images: [
       {
-        url: "https://image.mux.com/65NSXM39p1009IVy9zoYmv4jL76lxzCEMnGnYox4Tloc/thumbnail.png?time=2.5",
+        url: craftsMap["vercel-badge"].poster + "?time=2.5",
         alt: "Vercel Badge",
         width: 1920,
         height: 1080,

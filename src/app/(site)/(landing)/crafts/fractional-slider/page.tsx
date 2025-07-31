@@ -1,4 +1,5 @@
 import { ComponentDemoLayout } from "@/components/crafts/component-demo-layout"
+import { craftsMap } from "@/components/video/crafts-videos"
 import { FractionalSlider } from "@/components/crafts/fractional-slider/fractional-slider"
 import type { Metadata } from "next"
 
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     url: "/crafts/fractional-slider",
     images: [
       {
-        url: "https://image.mux.com/mUGYf7un01VCmnqD4jq8h9ttiQOexMt4eE3bOoxxFXPM/thumbnail.png?time=0",
+        url: craftsMap["fractional-slider"].poster + "?time=0",
         alt: "Fractional Slider",
         width: 1920,
         height: 1080,
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
   twitter: {
     images: [
       {
-        url: "https://image.mux.com/mUGYf7un01VCmnqD4jq8h9ttiQOexMt4eE3bOoxxFXPM/thumbnail.png?time=0",
+        url: craftsMap["fractional-slider"].poster + "?time=0",
         alt: "Fractional Slider",
         width: 1920,
         height: 1080,

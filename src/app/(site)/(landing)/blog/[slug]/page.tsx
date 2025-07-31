@@ -38,7 +38,11 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       <div className="relative min-h-screen">
         <div className="px-4 pt-4 lg:hidden">
           <BackAside>
-            <TableOfContents containerSelector="article" items={tocItems} />
+            <TableOfContents
+              containerSelector="article"
+              items={tocItems}
+              className="py-8"
+            />
           </BackAside>
         </div>
         <div className="pb-28 lg:grid lg:grid-cols-[280px_1fr_280px] lg:gap-6 lg:px-6 lg:pt-4">

@@ -1,5 +1,6 @@
 import { ComponentDemoLayout } from "@/components/crafts/component-demo-layout"
 import { BrightnessSlider } from "@/components/crafts/ios-slider/brightness-slider"
+import { craftsMap } from "@/components/video/crafts-videos"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     url: "/crafts/ios-slider",
     images: [
       {
-        url: "https://image.mux.com/OyI6tBDXZ402vENs38B6T45jmeAp01wd5CGwSX5U01ulcM/thumbnail.png?time=11",
+        url: craftsMap["ios-slider"].poster + "?time=11",
         alt: "iOS Slider",
         width: 1920,
         height: 1080,
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
   twitter: {
     images: [
       {
-        url: "https://image.mux.com/OyI6tBDXZ402vENs38B6T45jmeAp01wd5CGwSX5U01ulcM/thumbnail.png?time=11",
+        url: craftsMap["ios-slider"].poster + "?time=11",
         alt: "iOS Slider",
         width: 1920,
         height: 1080,

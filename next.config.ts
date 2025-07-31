@@ -40,6 +40,9 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "gaievskyi.com",
       },
+      {
+        hostname: "192.168.0.95",
+      },
     ],
   },
   logging: {

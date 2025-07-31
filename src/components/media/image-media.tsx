@@ -50,7 +50,6 @@ export const ImageMedia = (props: MediaProps) => {
 
   const loading = loadingFromProps || (priority ? undefined : "lazy")
 
-  // NOTE: this is used by the browser to determine which image to download at different screen sizes
   const sizes =
     sizeFromProps ??
     Object.entries(breakpoints)
@@ -58,7 +57,7 @@ export const ImageMedia = (props: MediaProps) => {
       .join(", ")
 
   return (
-    <picture className="mb-0">
+    <picture className="-mx-4 mb-0 sm:mx-0">
       <Image
         suppressHydrationWarning
         alt={alt || ""}
