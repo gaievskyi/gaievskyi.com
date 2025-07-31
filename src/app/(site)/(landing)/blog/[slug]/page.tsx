@@ -30,8 +30,8 @@ export async function generateMetadata({
   const { slug } = await paramsPromise
   const article = await getArticle(slug)
   return {
-    title: article.title,
-    description: article.meta?.description || undefined,
+    title: article.meta?.title,
+    description: article.meta?.description,
     openGraph: {
       title: article.title,
       description: article.meta?.description || undefined,
