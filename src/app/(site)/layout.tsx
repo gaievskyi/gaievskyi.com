@@ -51,14 +51,6 @@ export const metadata: Metadata = {
     url,
   },
   twitter: {
-    // images: [
-    //   {
-    //     url: `/images/opengraph-image.png`,
-    //     alt: "Daniel Gaievskyi",
-    //     width: 834,
-    //     height: 446,
-    //   },
-    // ],
     card: "summary_large_image",
     title: "Daniel Gaievskyi",
     creator: "@dgaievskyi",
