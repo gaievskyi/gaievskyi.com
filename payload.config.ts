@@ -63,9 +63,7 @@ export default buildConfig({
     payloadCloudPlugin(),
     seoPlugin({
       generateTitle: ({ doc }: { doc: Article | Project }) => {
-        return doc?.title
-          ? `${doc.title} | Daniel Gaievskyi`
-          : "Read Daniel Gaievskyi"
+        return doc?.title ? `${doc.title}` : ""
       },
       generateURL: ({ doc }: { doc: Article | Project }) => {
         const url = getServerSideURL()

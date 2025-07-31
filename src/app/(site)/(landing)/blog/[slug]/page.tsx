@@ -11,6 +11,12 @@ import { TableOfContents } from "@/components/ui/table-of-contents/table-of-cont
 import { Flex } from "@/components/ui/layout/flex"
 import { Heading } from "@/components/ui/typography/heading"
 import { Text } from "@/components/ui/typography/text"
+import type { Metadata } from "next"
+
+export async function generateStaticParams() {
+  const slugs = await getArticlesSlugs()
+  return slugs.map(({ slug }) => ({ slug }))
+}
 
 type ArticlePageProps = {
   params: Promise<{
@@ -18,9 +24,19 @@ type ArticlePageProps = {
   }>
 }
 
-export async function generateStaticParams() {
-  const slugs = await getArticlesSlugs()
-  return slugs.map(({ slug }) => ({ slug }))
+export async function generateMetadata({
+  params: paramsPromise,
+}: ArticlePageProps): Promise<Metadata> {
+  const { slug } = await paramsPromise
+  const page = await getArticle(slug)
+  return {
+    title: page.title,
+    description: page.meta?.description || "",
+    openGraph: {
+      title: page.title,
+      description: page.meta?.description || "",
+    },
+  }
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
