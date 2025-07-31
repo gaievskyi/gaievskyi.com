@@ -1,4 +1,4 @@
-import { Media } from "@/components/media/media"
+import { Media } from "@/cms/blocks/media/media-component"
 import type { Media as MediaType } from "../../../payload-types"
 
 export function Illustration({ src }: { src: MediaType }) {

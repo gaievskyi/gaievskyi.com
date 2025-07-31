@@ -1,7 +1,7 @@
 import { getArticle, getArticlesSlugs } from "@/cms/data-access/articles"
-import { DraftIndicator } from "@/components/draft-indicator"
-import { LivePreviewListener } from "@/components/live-preview-listener"
-import { RichText } from "@/components/rich-text"
+import { DraftIndicator } from "@/cms/draft-indicator"
+import { LivePreviewListener } from "@/cms/live-preview-listener"
+import { RichText } from "@/cms/rich-text"
 import { draftMode } from "next/headers"
 import { notFound } from "next/navigation"
 import { Illustration } from "@/components/ui/illustration"
@@ -83,11 +83,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                     <Illustration src={article.illustration} />
                   )}
                 <Flex direction="col" gap="xs">
-                  <Heading
-                    size="2xl"
-                    weight="medium"
-                    className="tracking-tight"
-                  >
+                  <Heading size="xl" weight="medium" className="tracking-tight">
                     {article.title}
                   </Heading>
                   {article.publishedAt && (

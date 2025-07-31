@@ -62,9 +62,21 @@ const customLinkConverter = {
 
     const children = nodesToJSX({ nodes: node.children })
 
-    const Comp = isInternal ? Link : ExternalLink
+    const Comp = isInternal ? Link : "a"
 
-    return <Comp href={href}>{children}</Comp>
+    return (
+      <Comp
+        href={href}
+        target={isInternal ? undefined : "_blank"}
+        style={{
+          textUnderlinePosition: "from-font",
+          textDecorationThickness: "0.08em",
+          textDecorationColor: "#62605b",
+        }}
+      >
+        {children}
+      </Comp>
+    )
   },
 }
 
