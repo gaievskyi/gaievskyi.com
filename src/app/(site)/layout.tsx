@@ -84,7 +84,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" suppressHydrationWarning>
       <link
         rel="preload"
-        href="/sprites/sprite.85958a4f.svg"
+        href="/sprites/sprite.958016db.svg"
         as="image"
         type="image/svg+xml"
       />
