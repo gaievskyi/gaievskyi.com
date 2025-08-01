@@ -41,7 +41,6 @@ const getArticleJsonLd = async (slug: string) => {
     inLanguage: "en-US",
     isFamilyFriendly: true,
     genre: "Technology",
-    isAccessibleForFree: true,
     isPartOf: {
       "@type": "WebSite",
       name: "Daniel Gaievskyi",
