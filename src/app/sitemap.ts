@@ -134,7 +134,7 @@ const generateSitemap = async (): Promise<MetadataRoute.Sitemap> => {
     {
       url,
       lastModified: new Date(),
-      priority: 1,
+      priority: 1.0,
     },
     {
       url: url + "/blog",
