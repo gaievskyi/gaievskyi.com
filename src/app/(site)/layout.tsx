@@ -59,6 +59,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: url,
+    types: {
+      "application/rss+xml": `${url}/blog/rss.xml`,
+      "text/plain": `${url}/llms.txt`,
+    },
   },
   formatDetection: {
     telephone: false,
