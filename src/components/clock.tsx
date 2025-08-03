@@ -6,19 +6,11 @@ import { Text } from "@/components/ui/typography/text"
 
 function useClock() {
   const [currentTime, setCurrentTime] = useState(new Date())
-  const [gmtOffset, setGmtOffset] = useState(() => {
-    const now = new Date()
-    const offset = -now.getTimezoneOffset() / 60
-    return `GMT${offset >= 0 ? "+" : ""}${offset}`
-  })
 
   useEffect(() => {
     const updateClock = () => {
       const now = new Date()
       setCurrentTime(now)
-
-      const offset = -now.getTimezoneOffset() / 60
-      setGmtOffset(`GMT${offset >= 0 ? "+" : ""}${offset}`)
     }
 
     updateClock()
@@ -33,7 +25,6 @@ function useClock() {
 
   return {
     currentTime,
-    gmtOffset,
     hours,
     minutes,
     seconds,
@@ -41,7 +32,7 @@ function useClock() {
 }
 
 export function Clock() {
-  const { currentTime, gmtOffset, hours, minutes, seconds } = useClock()
+  const { currentTime, hours, minutes, seconds } = useClock()
 
   return (
     <time
@@ -72,9 +63,6 @@ export function Clock() {
           />
         </Text>
       </NumberFlowGroup>
-      <span suppressHydrationWarning className="text-sm">
-        {gmtOffset}
-      </span>
     </time>
   )
 }
