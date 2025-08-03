@@ -8,6 +8,7 @@ import { unstable_ViewTransition as ViewTransition } from "react"
 import { BackAside } from "@/components/back-aside"
 import { Flex } from "@/components/ui/layout/flex"
 import { Heading } from "@/components/ui/typography/heading"
+import { AutoScrollTop } from "@/components/auto-scroll-top"
 
 type ComponentDemoLayoutProps = {
   title: string
@@ -30,6 +31,7 @@ export function ComponentDemoLayout({
 }: ComponentDemoLayoutProps) {
   return (
     <>
+      <AutoScrollTop />
       <BackAside />
       <article className="container mt-12 px-4 pt-8 sm:px-0 sm:pt-0">
         <Flex direction="col" gap="sm" className="mb-6">

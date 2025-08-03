@@ -2,6 +2,7 @@ import { Heading } from "@/components/ui/typography/heading"
 import { Text } from "@/components/ui/typography/text"
 import { Video } from "@/components/video/video"
 import { videosMap } from "@/components/video/projects-videos"
+import Link from "next/link"
 
 const videos = Object.entries(videosMap)
 
@@ -20,7 +21,9 @@ export function ProjectsVideoGrid() {
             key={slug}
             className="pointer-events-auto transition-opacity duration-300 ease-out group-hover:opacity-50 hover:opacity-100!"
           >
-            <Video src={video} slug={slug} asLink linkType="projects" />
+            <Link href={`/projects/${slug}`}>
+              <Video src={video} slug={slug} />
+            </Link>
           </div>
         ))}
       </div>

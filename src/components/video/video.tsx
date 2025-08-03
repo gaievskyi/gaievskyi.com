@@ -10,23 +10,11 @@ type VideoProps = PropsWithChildren &
   Readonly<{
     src: Asset
     slug: string
-    asLink?: boolean
-    linkType?: "crafts" | "projects"
     className?: string
     blurDataUrl?: string
   }>
 
-export function Video({
-  slug,
-  src,
-  asLink = false,
-  linkType = "crafts",
-  className,
-  blurDataUrl,
-}: VideoProps) {
-  const linkHref =
-    linkType === "projects" ? `/projects/${slug}` : `/crafts/${slug}`
-
+export function Video({ slug, src, className, blurDataUrl }: VideoProps) {
   return (
     <ViewTransition name={`video-${slug}`}>
       <div
@@ -35,29 +23,15 @@ export function Video({
           className,
         )}
       >
-        {asLink ? (
-          <Link href={linkHref}>
-            <BackgroundVideo
-              src={src}
-              blurDataURL={blurDataUrl}
-              muted
-              playsInline
-              loop
-              autoPlay
-              className="size-full object-cover"
-            />
-          </Link>
-        ) : (
-          <BackgroundVideo
-            src={src}
-            blurDataURL={blurDataUrl}
-            muted
-            playsInline
-            loop
-            autoPlay
-            className="size-full object-cover"
-          />
-        )}
+        <BackgroundVideo
+          src={src}
+          blurDataURL={blurDataUrl}
+          muted
+          playsInline
+          loop
+          autoPlay
+          className="size-full object-cover"
+        />
       </div>
     </ViewTransition>
   )

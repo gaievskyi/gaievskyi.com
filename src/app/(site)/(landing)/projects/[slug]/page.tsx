@@ -1,4 +1,5 @@
 import { AnimatedGroup } from "@/components/animated-group"
+import { AutoScrollTop } from "@/components/auto-scroll-top"
 import { Magnetic } from "@/components/magnetic"
 import { GithubButton } from "@/components/buttons/github-button"
 import { Icon } from "@/components/ui/icon"
@@ -93,6 +94,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <>
+      <AutoScrollTop />
       <BackAside />
       <Flex
         as="main"
