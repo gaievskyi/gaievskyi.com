@@ -3,13 +3,10 @@
     <style>
         rect {
             fill: #000;
-            stroke: #fff;
-            stroke-width: 1;
         }
         @media (prefers-color-scheme: dark) {
             rect {
                 fill: #FFF;
-                stroke: #000;
             }
         }
     </style>
