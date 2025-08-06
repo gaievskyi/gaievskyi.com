@@ -159,6 +159,7 @@
     padding-left: 0;
     font-size: var(--text-lg);
     font-style: normal;
+    line-height: 1.2;
     &:first-of-type::before {
       font-family: Georgia, serif;
       font-size: var(--text-2xl);
