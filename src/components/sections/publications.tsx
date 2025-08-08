@@ -2,6 +2,7 @@ import { Flex } from "@/components/ui/layout/flex"
 import { Separator } from "@/components/ui/separator"
 import { Heading } from "@/components/ui/typography/heading"
 import { Text } from "@/components/ui/typography/text"
+import { LinkLoadingIndicator } from "@/components/link-loading-indicator"
 import Link from "next/link"
 import { use } from "react"
 
@@ -33,13 +34,15 @@ export function Publications({ itemsPromise }: PublicationsProps) {
             className="group/item block py-2 transition-all duration-300 ease-out group-hover/items:blur-[2px] hover:!opacity-100 hover:!blur-none"
           >
             <Flex align="center" gap="sm">
-              {item.publishedAt && (
-                <Text as="span" size="sm" color="muted" className="mr-3">
-                  {Intl.DateTimeFormat("en-US", {
-                    year: "numeric",
-                  }).format(new Date(item.publishedAt))}
-                </Text>
-              )}
+              <LinkLoadingIndicator>
+                {item.publishedAt && (
+                  <Text as="span" size="sm" color="muted" className="mr-3">
+                    {Intl.DateTimeFormat("en-US", {
+                      year: "numeric",
+                    }).format(new Date(item.publishedAt))}
+                  </Text>
+                )}
+              </LinkLoadingIndicator>
               <Text as="span" size="sm">
                 {item.title}
               </Text>

@@ -1,0 +1,52 @@
+/* VIEW TRANSITIONS */
+
+::view-transition-group(*),
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: theme("transitionDuration.700");
+  animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  transform-origin: top center;
+}
+
+/* KEYFRAMES */
+
+@keyframes fly-heart {
+  0% {
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  20% {
+    transform: translate(-50%, -50%) scale(var(--heart-scale)) rotate(15deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(
+        calc(-50% + var(--heart-x)),
+        calc(-50% + var(--heart-y))
+      )
+      scale(0) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes spinner-leaf-fade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes skeleton-wave {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
