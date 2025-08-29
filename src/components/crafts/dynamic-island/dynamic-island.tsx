@@ -1,14 +1,14 @@
 "use client"
 
-import { useState } from "react"
-import { AnimatePresence, motion, type Variants } from "motion/react"
 import { AnimatedBackground } from "@/components/animated-background"
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { AnimatePresence, motion, type Variants } from "motion/react"
+import { useState } from "react"
+import { DynamicIslandCall } from "./dynamic-island-call"
+import { DynamicIslandMusic } from "./dynamic-island-music"
 import { DynamicIslandRing } from "./dynamic-island-ring"
 import { DynamicIslandTimer } from "./dynamic-island-timer"
-import { DynamicIslandMusic } from "./dynamic-island-music"
 import { DynamicIslandVoiceRecord } from "./dynamic-island-voice-record"
-import { DynamicIslandCall } from "./dynamic-island-call"
 
 const variants: Variants = {
   exit: (transition) => {
@@ -247,7 +247,6 @@ function DynamicIslandControls({
             </AnimatedBackground>
           </div>
         </div>
-        <ScrollBar orientation="horizontal" className="h-2 px-4" />
       </ScrollArea>
     </div>
   )

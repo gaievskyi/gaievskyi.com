@@ -1,12 +1,12 @@
 "use client"
 
-import { useEffect, useState, useRef, useCallback } from "react"
-import { motion, type Variants, AnimatePresence } from "motion/react"
-import { cn } from "@/lib/utils"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import type { TocItem } from "./generate-toc"
-import { useIsMobile } from "@/hooks/use-is-mobile"
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
+import { useIsMobile } from "@/hooks/use-is-mobile"
+import { cn } from "@/lib/utils"
+import { AnimatePresence, motion, type Variants } from "motion/react"
+import { useCallback, useEffect, useRef, useState } from "react"
+import type { TocItem } from "./generate-toc"
 
 const itemVariants: Variants = {
   hidden: {

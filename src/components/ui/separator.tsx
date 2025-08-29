@@ -1,12 +1,10 @@
-"use client"
-
-import * as React from "react"
-import * as SeparatorPrimitive from "@radix-ui/react-separator"
-import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
+import { Separator as BaseSeparator } from "@base-ui-components/react/separator"
+import { cva } from "class-variance-authority"
+import * as React from "react"
 
 const separatorVariants = cva(
-  "shrink-0 data-[orientation=horizontal]:h-px data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px",
+  "shrink-0 data-[orientation=horizontal]:h-px data-[orientation=vertical]:w-px",
   {
     variants: {
       dashed: {
@@ -20,21 +18,19 @@ const separatorVariants = cva(
   },
 )
 
-interface SeparatorProps
-  extends React.ComponentProps<typeof SeparatorPrimitive.Root>,
-    VariantProps<typeof separatorVariants> {}
+type SeparatorProps = React.ComponentProps<typeof BaseSeparator> & {
+  dashed?: boolean
+}
 
 function Separator({
   className,
   orientation = "horizontal",
-  decorative = true,
   dashed,
   ...props
 }: SeparatorProps) {
   return (
-    <SeparatorPrimitive.Root
+    <BaseSeparator
       data-slot="separator"
-      decorative={decorative}
       orientation={orientation}
       className={cn(separatorVariants({ dashed }), className)}
       {...props}

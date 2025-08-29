@@ -1,10 +1,10 @@
 "use client"
 
 import { CopyButton } from "@/components/buttons/copy-button"
-import { Highlight, themes } from "prism-react-renderer"
-import { useTheme } from "next-themes"
+import { ScrollArea } from "@/components/ui/scroll-area"
 import { useIsMountedState } from "@/hooks/use-is-mounted-state"
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+import { useTheme } from "next-themes"
+import { Highlight, themes } from "prism-react-renderer"
 
 type Props = {
   code: string
@@ -48,7 +48,6 @@ export function Code({ code, language = "" }: Props) {
       <div className="absolute top-2 right-3 z-10 rounded-md bg-white/5 p-1 backdrop-blur-sm dark:bg-black/5">
         <CopyButton text={code} tooltipSide="bottom" />
       </div>
-      <ScrollBar orientation="horizontal" />
     </ScrollArea>
   )
 }

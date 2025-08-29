@@ -67,7 +67,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={`${geistSans.variable} ${geistMono.variable} ${heldaneText.variable} ${geistSans.className} relative antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${heldaneText.variable} ${geistSans.className} root relative antialiased`}
       >
         <Providers>
           <ProgressiveBlur
