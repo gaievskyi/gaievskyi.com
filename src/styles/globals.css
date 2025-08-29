@@ -26,6 +26,8 @@
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
   --color-link: var(--link);
   --color-link-hover: var(--link-hover);
   --color-iphone-frame: var(--iphone-frame);
@@ -63,6 +65,8 @@
   --ring: oklch(0.708 0 0);
   --link: oklch(0.6067 0.1843 255.85);
   --link-hover: oklch(0.4923 0.1506 256.36);
+  --popover: oklch(97% 0 0);
+  --popover-foreground: oklch(14.5% 0 0);
   --iphone-frame: oklch(0.9 0 0);
   --iphone-screen: oklch(1 0 0);
   --iphone-border: oklch(0.9 0 0);
@@ -88,6 +92,8 @@
   --ring: oklch(0.556 0 0);
   --link: oklch(0.6067 0.1843 255.85);
   --link-hover: oklch(0.4923 0.1506 256.36);
+  --popover: oklch(20.5% 0 0);
+  --popover-foreground: oklch(98.5% 0 0);
   --iphone-frame: oklch(0.25 0 0);
   --iphone-screen: oklch(0.15 0 0);
   --iphone-border: oklch(0.25 0 0);

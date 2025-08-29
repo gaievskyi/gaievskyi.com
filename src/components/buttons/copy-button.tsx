@@ -59,22 +59,24 @@ export function CopyButton({ text, tooltipSide, ...props }: CopyButtonProps) {
 
   return (
     <Tooltip>
-      <TooltipTrigger asChild>
-        <Button
-          {...props}
-          variant="ghost"
-          size="icon"
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}
-          onClick={onClick}
-        >
-          {isCopied ? (
-            <CheckIcon ref={checkIconRef} />
-          ) : (
-            <CopyIcon ref={copyIconRef} />
-          )}
-        </Button>
-      </TooltipTrigger>
+      <TooltipTrigger
+        render={
+          <Button
+            {...props}
+            variant="ghost"
+            size="icon"
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+            onClick={onClick}
+          >
+            {isCopied ? (
+              <CheckIcon ref={checkIconRef} />
+            ) : (
+              <CopyIcon ref={copyIconRef} />
+            )}
+          </Button>
+        }
+      />
       <TooltipContent side={tooltipSide}>
         <p>{isCopied ? "Copied" : "Copy"}</p>
       </TooltipContent>

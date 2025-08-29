@@ -9,7 +9,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
-import { useRef, type MouseEventHandler, type ComponentProps } from "react"
+import { useRef, type ComponentProps, type MouseEventHandler } from "react"
 
 type GithubButtonProps = ComponentProps<typeof Button> & {
   href?: string
@@ -34,22 +34,27 @@ export function GithubButton({ className, href, ...props }: GithubButtonProps) {
 
   return (
     <Tooltip>
-      <TooltipTrigger asChild>
-        <Button
-          {...props}
-          variant="ghost"
-          size="icon"
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}
-          onClick={onClick}
-          className={cn("group size-9 rounded-full cursor-pointer", className)}
-        >
-          <GithubIcon
-            ref={iconRef}
-            className="text-muted-foreground group-hover:text-foreground"
-          />
-        </Button>
-      </TooltipTrigger>
+      <TooltipTrigger
+        render={
+          <Button
+            {...props}
+            variant="ghost"
+            size="icon"
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+            onClick={onClick}
+            className={cn(
+              "group size-9 rounded-full cursor-pointer",
+              className,
+            )}
+          >
+            <GithubIcon
+              ref={iconRef}
+              className="text-muted-foreground group-hover:text-foreground"
+            />
+          </Button>
+        }
+      />
       <TooltipContent side="right">
         <p>Source code</p>
       </TooltipContent>
