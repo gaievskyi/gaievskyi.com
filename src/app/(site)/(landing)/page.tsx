@@ -51,11 +51,17 @@ export default function IndexPage() {
         >
           <HeaderContent />
         </GridItem>
-        <GridItem as="section" id="about" row={2} outlined="both" padding="md">
+        <GridItem
+          as="section"
+          id="socials"
+          row={2}
+          outlined="both"
+          padding="md"
+        >
           <CrossBackground className="text-neutral-700" />
           <Socials />
         </GridItem>
-        <GridItem as="section" id="contact" row={3} padding="lg">
+        <GridItem as="section" id="about" row={3} padding="lg">
           <About />
         </GridItem>
         <GridItem
