@@ -1,12 +1,9 @@
+import "./env/env"
+// ^ validate env during build
 import svg from "@neodx/svg/webpack"
 import { withPayload } from "@payloadcms/next/withPayload"
-import createJiti from "jiti"
 import type { NextConfig } from "next"
 import { withNextVideo } from "next-video/process"
-import { fileURLToPath } from "node:url"
-
-const jiti = createJiti(fileURLToPath(import.meta.url))
-jiti("./env/env")
 
 Object.assign(process.env, { NEXT_TELEMETRY_DISABLED: "1" })
 const isProduction = process.env.NODE_ENV === "production"
