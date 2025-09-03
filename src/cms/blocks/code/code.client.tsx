@@ -1,53 +1,54 @@
-"use client"
-
 import { CopyButton } from "@/components/copy-button"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { useIsMountedState } from "@/hooks/use-is-mounted-state"
-import { useTheme } from "next-themes"
-import { Highlight, themes } from "prism-react-renderer"
+import { codeToHtml } from "shiki"
 
 type Props = {
   code: string
   language?: string
 }
 
-export function Code({ code, language = "" }: Props) {
-  const { resolvedTheme } = useTheme()
-  const isMounted = useIsMountedState()
-
+export async function Code({ code, language = "" }: Props) {
   if (!code) return null
 
-  // Use light theme until component mounts and theme is resolved
-  // This ensures server and client render the same content initially
-  const syntaxTheme =
-    isMounted && resolvedTheme === "dark" ? themes.oneDark : themes.oneLight
+  try {
+    const html = await codeToHtml(code, {
+      lang: language || "text",
+      theme: "vesper",
+      transformers: [
+        {
+          name: "remove-background",
+          pre(node) {
+            this.addClassToHast(node, "shiki")
+            if (node.properties) {
+              delete node.properties.style
+            }
+          },
+        },
+      ],
+    })
 
-  return (
-    <ScrollArea className="relative rounded border border-border bg-white dark:bg-black">
-      <Highlight code={code} language={language} theme={syntaxTheme}>
-        {({ getLineProps, getTokenProps, tokens }) => (
-          <pre className="relative w-max min-w-full p-4 text-xs">
-            {tokens.map((line, i) => (
-              <div
-                key={i}
-                {...getLineProps({ className: "flex whitespace-nowrap", line })}
-              >
-                <span className="mr-4 min-w-[2ch] shrink-0 text-right text-black/25 select-none dark:text-white/25">
-                  {i + 1}
-                </span>
-                <span className="flex-1 whitespace-pre">
-                  {line.map((token, key) => (
-                    <span key={key} {...getTokenProps({ token })} />
-                  ))}
-                </span>
-              </div>
-            ))}
-          </pre>
-        )}
-      </Highlight>
-      <div className="absolute top-2 right-3 z-10 rounded-md bg-white/5 p-1 backdrop-blur-sm dark:bg-black/5">
-        <CopyButton text={code} tooltipSide="bottom" />
-      </div>
-    </ScrollArea>
-  )
+    return (
+      <ScrollArea className="relative rounded border border-border bg-white dark:bg-black">
+        <div
+          className="relative w-max min-w-full p-4 text-xs"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+        <div className="absolute top-2 right-3 z-10 rounded-md bg-white/5 p-1 backdrop-blur-sm dark:bg-black/5">
+          <CopyButton text={code} tooltipSide="bottom" />
+        </div>
+      </ScrollArea>
+    )
+  } catch (error) {
+    console.error("Error generating syntax highlighting:", error)
+    return (
+      <ScrollArea className="relative rounded border border-border bg-white dark:bg-black">
+        <pre className="relative w-max min-w-full p-4 text-xs">
+          <code>{code}</code>
+        </pre>
+        <div className="absolute top-2 right-3 z-10 rounded-md bg-white/5 p-1 backdrop-blur-sm dark:bg-black/5">
+          <CopyButton text={code} tooltipSide="bottom" />
+        </div>
+      </ScrollArea>
+    )
+  }
 }

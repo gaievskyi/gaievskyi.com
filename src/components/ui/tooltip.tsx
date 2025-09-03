@@ -72,7 +72,7 @@ function TooltipContent({
           {...props}
         >
           {children}
-          <TooltipArrow className="data-[side=bottom]:top-[-16px] data-[side=left]:right-[-16px] data-[side=left]:rotate-90 data-[side=right]:left-[-16px] data-[side=right]:-rotate-90 data-[side=top]:bottom-[-13px] data-[side=top]:rotate-180">
+          <TooltipArrow className="data-[side=bottom]:top-[-16px] data-[side=left]:right-[-16px] data-[side=left]:rotate-90 data-[side=right]:left-[-16px] data-[side=right]:-rotate-90 data-[side=top]:bottom-[-16px] data-[side=top]:rotate-180">
             <Icon name="sprite:tooltip-arrow" className="text-xl" />
           </TooltipArrow>
         </BaseTooltip.Popup>
