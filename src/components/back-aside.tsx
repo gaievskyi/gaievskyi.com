@@ -1,7 +1,7 @@
 import { ThemeSwitch } from "@/components/theme-switch"
+import Link from "next/link"
 import { Button } from "./ui/button"
 import { Icon } from "./ui/icon"
-import Link from "next/link"
 
 type BackAsideProps = {
   children?: React.ReactNode
@@ -16,9 +16,9 @@ export function BackAside({ children }: BackAsideProps) {
             variant="link"
             aria-label="Go back"
             size="sm"
-            className="text-sm"
+            className="text-base"
           >
-            <Icon name="sprite:arrow-back" className="size-4" /> Index
+            <Icon name="sprite:arrow-back" /> Index
           </Button>
         </Link>
         {children}

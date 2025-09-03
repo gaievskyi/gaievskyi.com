@@ -1,5 +1,4 @@
 import { getProject, getProjectsSlugs } from "@/cms/data-access/projects"
-import { AutoScrollTop } from "@/components/auto-scroll-top"
 import { BackAside } from "@/components/back-aside"
 import { Flex } from "@/components/ui/layout/flex"
 import { isVideo, videosMap } from "@/components/video/projects-videos"
@@ -25,7 +24,6 @@ export default async function ProjectPage({
 
   return (
     <>
-      <AutoScrollTop />
       <BackAside />
       <Flex
         as="main"

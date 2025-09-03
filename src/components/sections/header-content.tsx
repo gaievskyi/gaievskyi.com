@@ -5,14 +5,14 @@ import { Heading } from "@/components/ui/typography/heading"
 export function HeaderContent() {
   return (
     <Flex align="center" justify="between" gap="sm">
-      <div>
+      <Flex direction="col">
         <Heading as="h1" size="base" weight="semibold">
           Daniel Gaievskyi
         </Heading>
         <Heading as="h2" size="base" color="muted">
           Design Engineer
         </Heading>
-      </div>
+      </Flex>
       <ThemeSwitch />
     </Flex>
   )

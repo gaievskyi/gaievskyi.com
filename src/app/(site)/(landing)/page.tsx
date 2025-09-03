@@ -2,12 +2,12 @@ import { getArticles } from "@/cms/data-access/articles"
 import { CrossBackground } from "@/components/cross-background"
 import { PublicationsSkeleton } from "@/components/publications-skeleton"
 import { About } from "@/components/sections/about"
-import { Contact } from "@/components/sections/contact"
 import { CraftsVideoGrid } from "@/components/sections/crafts-video-grid"
 import { FooterContent } from "@/components/sections/footer-content"
 import { HeaderContent } from "@/components/sections/header-content"
 import { ProjectsVideoGrid } from "@/components/sections/projects-video-grid"
 import { Publications } from "@/components/sections/publications"
+import { Socials } from "@/components/sections/socials"
 import { Grid, GridItem } from "@/components/ui/layout/grid"
 import { Suspense } from "react"
 import type { Person, WithContext } from "schema-dts"
@@ -53,10 +53,10 @@ export default function IndexPage() {
         </GridItem>
         <GridItem as="section" id="about" row={2} outlined="both" padding="md">
           <CrossBackground className="text-neutral-700" />
-          <About />
+          <Socials />
         </GridItem>
         <GridItem as="section" id="contact" row={3} padding="lg">
-          <Contact />
+          <About />
         </GridItem>
         <GridItem
           as="section"

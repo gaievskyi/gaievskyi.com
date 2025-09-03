@@ -1,4 +1,3 @@
-import { AutoScrollTop } from "@/components/auto-scroll-top"
 import { BackAside } from "@/components/back-aside"
 import {
   BottomNavigation,
@@ -31,7 +30,6 @@ export function ComponentDemoLayout({
 }: ComponentDemoLayoutProps) {
   return (
     <>
-      <AutoScrollTop />
       <BackAside />
       <article className="container flex h-svh w-full flex-col justify-center px-4 pt-12 sm:px-0">
         <Flex direction="col">

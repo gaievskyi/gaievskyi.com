@@ -1,9 +1,9 @@
-import { withPayload } from "@payloadcms/next/withPayload"
-import { withNextVideo } from "next-video/process"
-import type { NextConfig } from "next"
-import { fileURLToPath } from "node:url"
-import createJiti from "jiti"
 import svg from "@neodx/svg/webpack"
+import { withPayload } from "@payloadcms/next/withPayload"
+import createJiti from "jiti"
+import type { NextConfig } from "next"
+import { withNextVideo } from "next-video/process"
+import { fileURLToPath } from "node:url"
 
 const jiti = createJiti(fileURLToPath(import.meta.url))
 jiti("./env/env")
@@ -29,6 +29,10 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
     remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
       {
         protocol: "https",
         hostname: "avatars.githubusercontent.com",
