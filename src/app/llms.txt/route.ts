@@ -22,7 +22,7 @@ export async function GET() {
     ],
     sections: {
       about:
-        "I develop elegant, user-centered, and visually appealing applications. With background in front-end development, I consider myself a designer at heart and enjoy building highly polished products, where every detail matters. I like projects where design and code naturally flow together, so that nothing gets missed during implementation. I’m drawn to experiments. I dive in fast, and explore broadly. Whether I’m shaping early ideas, refining products in production, or crafting visuals for one-off moments, I make sure everything feels and looks excellent.",
+        "I develop elegant, user-centered, and visually appealing applications. I like projects where design and code naturally flow together. I’m drawn to experiments. I dive in fast, and explore broadly. Whether I’m shaping early ideas, refining products in production, or crafting visuals for one-off moments, I make sure everything feels and looks excellent. If you share this vision, and are looking for a partner to push your product forward, reach out at @dgaievskyi or daniel@gaievskyi.com. Based in Poland, available remotely worldwide.",
       contact:
         "[Email](mailto:daniel@gaievskyi.com). Based in Poland, available remotely worldwide.",
       articles: articles

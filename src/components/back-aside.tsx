@@ -16,9 +16,9 @@ export function BackAside({ children }: BackAsideProps) {
             variant="link"
             aria-label="Go back"
             size="sm"
-            className="text-base"
+            className="space-x-1 text-base"
           >
-            <Icon name="sprite:arrow-back" /> Index
+            <Icon name="sprite:arrow-back" /> <span>Index</span>
           </Button>
         </Link>
         {children}

@@ -21,7 +21,11 @@ export function CraftsVideoGrid() {
             key={slug}
             className="pointer-events-auto transition-opacity duration-300 ease-out group-hover:opacity-50 hover:opacity-100!"
           >
-            <Link href={`/crafts/${slug}`} aria-label={`Explore craft ${slug}`}>
+            <Link 
+              href={`/crafts/${slug}`} 
+              aria-label={`Explore craft ${slug}`}
+              className="video-link block rounded-xl"
+            >
               <Video src={video} slug={slug} />
             </Link>
           </div>

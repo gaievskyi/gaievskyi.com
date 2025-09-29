@@ -1,9 +1,9 @@
 "use client"
 
-import { useState, useRef } from "react"
-import { motion, AnimatePresence } from "motion/react"
 import { RadialMenu } from "@/components/crafts/radial-menu/radial-menu"
 import { Icon } from "@/components/ui/icon"
+import { AnimatePresence, motion } from "motion/react"
+import { useRef, useState } from "react"
 
 const items = [
   {
@@ -36,10 +36,7 @@ export function RadialMenuDemo() {
   const demoContainerRef = useRef<HTMLDivElement>(null)
   const [menuVisible, setMenuVisible] = useState(false)
   return (
-    <div
-      ref={demoContainerRef}
-      className="relative size-full bg-white dark:bg-[#1C1C1C]"
-    >
+    <div ref={demoContainerRef} className="relative size-full">
       <AnimatePresence initial={false}>
         {!menuVisible && (
           <motion.div

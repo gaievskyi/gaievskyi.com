@@ -129,7 +129,7 @@ function Grid<T extends ElementType = "div">({
   as,
   children,
   className,
-  maxWidth = "80ch",
+  maxWidth = "85ch",
   ...props
 }: GridProps<T>) {
   const Component = as || "div"

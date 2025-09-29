@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils"
 
 export function PublicationsSkeleton({ count = 3 }: { count?: number }) {
   return (
-    <section className="container w-full">
+    <section className="w-full">
       <div>
         {/* Title button skeleton */}
         <div className="flex items-center gap-6">

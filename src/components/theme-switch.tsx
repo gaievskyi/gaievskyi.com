@@ -2,8 +2,8 @@
 
 import { Icon } from "@/components/ui/icon"
 import { Spinner } from "@/components/ui/spinner"
-import { useShortcut } from "@/hooks/use-shortcut"
 import { useIsMountedState } from "@/hooks/use-is-mounted-state"
+import { useShortcut } from "@/hooks/use-shortcut"
 import { cn } from "@/lib/utils"
 import { useTheme } from "next-themes"
 
@@ -43,7 +43,7 @@ export function ThemeSwitch({ className }: { className?: string }) {
     <button
       onClick={onToggle}
       className={cn(
-        "inline-flex size-7 items-center justify-center rounded-md border border-border/50 bg-muted/50 shadow-xs backdrop-blur-xs transition-all duration-200 hover:text-muted-foreground hover:bg-muted/70 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:outline-hidden active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed",
+        "inline-flex size-7 items-center justify-center rounded-md border border-border/50 bg-muted/50 shadow-xs backdrop-blur-xs transition-colors duration-200 hover:text-muted-foreground hover:bg-muted/70 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed",
         className,
       )}
       aria-label="Toggle theme"

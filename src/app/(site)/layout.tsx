@@ -2,7 +2,7 @@ import { LetHimCook } from "@/components/console-message"
 import { ScreenSizeIndicator } from "@/components/dev-screen-size-indicator"
 import { ProgressiveBlur } from "@/components/progressive-blur"
 import { Providers } from "@/components/providers"
-import { geistMono, geistSans, heldaneText } from "@/lib/fonts"
+import { geistMono, heldaneText } from "@/lib/fonts"
 import { getServerSideURL } from "@/lib/get-url"
 import "@/styles/globals.css"
 import { Analytics } from "@vercel/analytics/next"
@@ -67,7 +67,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={`${geistSans.variable} ${geistMono.variable} ${heldaneText.variable} ${geistSans.className} root relative antialiased`}
+        className={`${geistMono.variable} ${heldaneText.variable} font-system root relative antialiased`}
       >
         <Providers>
           <ProgressiveBlur

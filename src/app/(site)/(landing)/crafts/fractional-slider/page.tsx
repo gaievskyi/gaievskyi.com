@@ -1,6 +1,6 @@
 import { ComponentDemoLayout } from "@/components/crafts/component-demo-layout"
-import { craftsMap } from "@/components/video/crafts-videos"
 import { FractionalSlider } from "@/components/crafts/fractional-slider/fractional-slider"
+import { craftsMap } from "@/components/video/crafts-videos"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -46,6 +46,7 @@ export default function FractionalSliderPage() {
       }}
       className="h-[300px]"
       slug="fractional-slider"
+      decoratedBackground={false}
     >
       <FractionalSlider />
     </ComponentDemoLayout>

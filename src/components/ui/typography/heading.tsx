@@ -11,12 +11,12 @@ type HeadingBaseProps = PropsWithChildren & {
 }
 
 type HeadingAsChildProps = {
-  asChild?: boolean
+  asChild: true
   as?: never
 }
 type HeadingAsProps = {
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
-  asChild?: never
+  asChild?: false
 }
 type HeadingProps = HeadingBaseProps &
   TypographyVariants &
@@ -26,23 +26,24 @@ function Heading({
   children,
   className,
   asChild = false,
-  as: Component = "h1",
+  as: Tag = "h1",
   weight = "normal",
   size = "base",
   italic = false,
   color = "default",
   ...headingProps
 }: HeadingProps) {
+  const Component = asChild ? Slot : Tag
   return (
-    <Slot
+    <Component
       {...headingProps}
       className={cn(
         typographyVariants({ size, weight, italic, color }),
         className,
       )}
     >
-      {asChild ? children : <Component>{children}</Component>}
-    </Slot>
+      {children}
+    </Component>
   )
 }
 

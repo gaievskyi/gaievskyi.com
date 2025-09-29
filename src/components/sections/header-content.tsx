@@ -6,10 +6,10 @@ export function HeaderContent() {
   return (
     <Flex align="center" justify="between" gap="sm">
       <Flex direction="col">
-        <Heading as="h1" size="base" weight="semibold">
+        <Heading as="h1" weight="semibold">
           Daniel Gaievskyi
         </Heading>
-        <Heading as="h2" size="base" color="muted">
+        <Heading as="h2" color="muted">
           Design Engineer
         </Heading>
       </Flex>
