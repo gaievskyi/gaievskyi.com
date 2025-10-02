@@ -1,12 +1,11 @@
-import globals from "globals"
+import { FlatCompat } from "@eslint/eslintrc"
 import pluginJs from "@eslint/js"
-import tseslint from "typescript-eslint"
-import reactCompiler from "eslint-plugin-react-compiler"
 import pluginReact from "eslint-plugin-react"
 import tailwind from "eslint-plugin-tailwindcss"
-import { FlatCompat } from "@eslint/eslintrc"
-import path from "node:path"
+import globals from "globals"
 import fs from "node:fs"
+import path from "node:path"
+import tseslint from "typescript-eslint"
 
 const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
@@ -17,7 +16,6 @@ const config = [
   { ignores: [".next/**", "public/**", "next.config.js", "postcss.config.js"] },
   { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
   { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
-  reactCompiler.configs.recommended,
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
