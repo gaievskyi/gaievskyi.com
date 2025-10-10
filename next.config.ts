@@ -10,7 +10,6 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   experimental: {
     browserDebugInfoInTerminal: !isProduction,
-    viewTransition: true,
     turbopackFileSystemCacheForDev: true,
     inlineCss: true,
     useCache: true,
