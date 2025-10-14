@@ -1,6 +1,7 @@
 import BackgroundVideo from "next-video/background-video"
 import type { Asset } from "next-video/dist/assets.js"
-import { ViewTransition, type PropsWithChildren } from "react"
+import { type PropsWithChildren } from "react"
+import { unstable_ViewTransition as ViewTransition } from "react"
 
 import { cn } from "@/lib/utils"
 

@@ -7,7 +7,7 @@ import { Flex } from "@/components/ui/layout/flex"
 import { Heading } from "@/components/ui/typography/heading"
 import { cn } from "@/lib/utils"
 import type { ReactNode } from "react"
-import { ViewTransition } from "react"
+import { unstable_ViewTransition as ViewTransition } from "react"
 
 type ComponentDemoLayoutProps = {
   title: string

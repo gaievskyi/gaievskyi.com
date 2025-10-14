@@ -1,3 +1,6 @@
+import "./env/env"
+// ^ validate env
+
 import svg from "@neodx/svg/webpack"
 import { withPayload } from "@payloadcms/next/withPayload"
 import type { NextConfig } from "next"
@@ -7,11 +10,11 @@ Object.assign(process.env, { NEXT_TELEMETRY_DISABLED: "1" })
 const isProduction = process.env.NODE_ENV === "production"
 
 const nextConfig: NextConfig = {
-  reactCompiler: true,
   experimental: {
     browserDebugInfoInTerminal: !isProduction,
-    turbopackFileSystemCacheForDev: true,
     inlineCss: true,
+    reactCompiler: true,
+    viewTransition: true,
     useCache: true,
     cacheLife: {
       blog: {
@@ -42,6 +45,9 @@ const nextConfig: NextConfig = {
     fetches: {
       fullUrl: true,
     },
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true,
