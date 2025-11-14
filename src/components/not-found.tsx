@@ -12,10 +12,10 @@ export function NotFound() {
       }}
       animate={{ opacity: 1, filter: "blur(0px)" }}
       transition={{ duration: 0.35, ease: "easeOut" }}
-      className="flex h-[170px] flex-col gap-4"
+      className="flex flex-col gap-4"
     >
-      <FuzzyText fontSize={140}>404</FuzzyText>
-      <FuzzyText fontSize={70} fontFamily="Heldane">
+      <FuzzyText fontSize={200}>404</FuzzyText>
+      <FuzzyText fontSize={85} fontFamily="Heldane" className="ml-2">
         not found
       </FuzzyText>
     </motion.div>

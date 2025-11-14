@@ -11,6 +11,7 @@ type FuzzyTextProps = {
   enableHover?: boolean
   baseIntensity?: number
   hoverIntensity?: number
+  className?: string
 }
 
 function FuzzyText({
@@ -21,6 +22,7 @@ function FuzzyText({
   enableHover = true,
   baseIntensity = 0.18,
   hoverIntensity = 0.5,
+  className,
 }: FuzzyTextProps) {
   const { resolvedTheme } = useTheme()
   const isDark = resolvedTheme === "dark"
@@ -211,7 +213,7 @@ function FuzzyText({
     hoverIntensity,
   ])
 
-  return <canvas ref={canvasRef} />
+  return <canvas ref={canvasRef} className={className} />
 }
 
 export default FuzzyText
