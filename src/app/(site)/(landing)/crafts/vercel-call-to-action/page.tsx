@@ -5,7 +5,7 @@ export default function VercelCallToActionPage() {
   return (
     <ComponentDemoLayout
       title="Vercel Call to Action"
-      date="November 2025"
+      date="August 2025"
       slug="vercel-call-to-action"
       previous={{
         title: "Fractional Slider",
