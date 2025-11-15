@@ -285,18 +285,3 @@
     }
   }
 }
-
-a:focus-visible,
-button:focus-visible {
-  transition: none;
-  outline: 1px dashed var(--ring);
-  outline-offset: 1px;
-  border-radius: 6px;
-}
-
-.video-link:focus-visible {
-  transition: none;
-  outline: 1px dashed var(--ring);
-  outline-offset: 1px;
-  border-radius: var(--radius-xl);
-}

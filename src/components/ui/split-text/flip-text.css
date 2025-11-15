@@ -1,0 +1,75 @@
+.words,
+.word,
+.char,
+.words,
+.word,
+.char,
+.char::before,
+.char::after {
+  transform-style: preserve-3d;
+  display: inline-block;
+  @apply transform-gpu;
+  will-change: transform, opacity, filter;
+}
+
+.char {
+  display: inline-flex;
+  position: relative;
+  height: 1em;
+  line-height: 1;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  perspective: 1000px;
+  color: transparent;
+}
+
+.animate-flip-on-hover .char {
+  --duration: 0.5s;
+  --delay: calc(
+    (
+      sin((var(--char-index) / var(--char-total)) * 90deg) *
+        (var(--duration) * 0.7)
+    )
+  );
+  display: inline-flex;
+}
+
+.char::after,
+.char::before {
+  color: white;
+  content: attr(data-char);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  transition: all var(--duration) cubic-bezier(0.4, 0, 0.2, 1) var(--delay);
+}
+
+.char::before {
+  transform: rotateX(-90deg) translateZ(0.4em);
+  opacity: 0;
+}
+
+.char::after {
+  transform: translateZ(0);
+  opacity: 1;
+}
+
+.group:hover .animate-flip-on-hover .char::after,
+.animate-flip-on-hover:hover .char::after {
+  transform: rotateX(90deg) translateZ(0.4em);
+  filter: blur(4px);
+  opacity: 0;
+}
+
+.group:hover .animate-flip-on-hover .char::before,
+.animate-flip-on-hover:hover .char::before {
+  transform: rotateX(0) translateZ(0.4em);
+  opacity: 1;
+}

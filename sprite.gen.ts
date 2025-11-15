@@ -341,18 +341,21 @@ export const sprites = defineSpriteMap([defineSprite(
      ["system"],
      [14]
    ), defineSpriteSymbol(
+     ["vercel-arrow-right"],
+     [30, "0 0 16 16"]
+   ), defineSpriteSymbol(
      ["warning"],
      [24]
    ), defineSpriteSymbol(
      ["x"],
      [24]
    )],
-  defineExternalAssetMeta('sprite.f1213f0c.svg')
+  defineExternalAssetMeta('sprite.f04be1b6.svg')
 )]
 )])
 
 export type SpritesMeta = {
-  "sprite": "arrow-back" | "arrow-back2" | "arrow" | "arrow2" | "check" | "chevron-up" | "copy" | "error" | "ethereum" | "external-link" | "fast-forward" | "github" | "info" | "inspect" | "moon" | "pause" | "phone" | "play" | "podcast" | "print" | "reload" | "ring" | "save" | "spinner" | "success" | "sun" | "sun2" | "system" | "warning" | "x";
+  "sprite": "arrow-back" | "arrow-back2" | "arrow" | "arrow2" | "check" | "chevron-up" | "copy" | "error" | "ethereum" | "external-link" | "fast-forward" | "github" | "info" | "inspect" | "moon" | "pause" | "phone" | "play" | "podcast" | "print" | "reload" | "ring" | "save" | "spinner" | "success" | "sun" | "sun2" | "system" | "vercel-arrow-right" | "warning" | "x";
 }
 
 //#endregion

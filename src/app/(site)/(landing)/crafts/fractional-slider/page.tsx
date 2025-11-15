@@ -44,6 +44,10 @@ export default function FractionalSliderPage() {
         title: "iOS Slider",
         href: "/crafts/ios-slider",
       }}
+      next={{
+        title: "Vercel Call to Action",
+        href: "/crafts/vercel-call-to-action",
+      }}
       className="h-[300px]"
       slug="fractional-slider"
       decoratedBackground={false}
