@@ -12,7 +12,7 @@
     "verbatimModuleSyntax": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
       {
@@ -30,7 +30,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/app/llms.txt"
+    "src/app/llms.txt",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }

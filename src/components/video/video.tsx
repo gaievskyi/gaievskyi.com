@@ -1,10 +1,6 @@
 import BackgroundVideo from "next-video/background-video"
 import type { Asset } from "next-video/dist/assets.js"
-import {
-  // @ts-expect-error should update to next 16
-  unstable_ViewTransition as ViewTransition,
-  type PropsWithChildren,
-} from "react"
+import { ViewTransition, type PropsWithChildren } from "react"
 
 import { cn } from "@/lib/utils"
 

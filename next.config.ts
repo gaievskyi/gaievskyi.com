@@ -10,19 +10,19 @@ Object.assign(process.env, { NEXT_TELEMETRY_DISABLED: "1" })
 const isProduction = process.env.NODE_ENV === "production"
 
 const nextConfig: NextConfig = {
+  reactCompiler: true,
+  cacheLife: {
+    blog: {
+      revalidate: 60 * 60 * 24 * 365, // 1 year
+      stale: 60, // 1 minute
+      expire: 60 * 60 * 24 * 365, // 1 year
+    },
+  },
   experimental: {
+    turbopackFileSystemCacheForDev: true,
     browserDebugInfoInTerminal: !isProduction,
     inlineCss: true,
-    reactCompiler: true,
-    viewTransition: true,
     useCache: true,
-    cacheLife: {
-      blog: {
-        revalidate: 60 * 60 * 24 * 365, // 1 year
-        stale: 60, // 1 minute
-        expire: 60 * 60 * 24 * 365, // 1 year
-      },
-    },
   },
   poweredByHeader: false,
   images: {
@@ -45,9 +45,6 @@ const nextConfig: NextConfig = {
     fetches: {
       fullUrl: true,
     },
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true,
