@@ -45,6 +45,26 @@
   --color-destructive-foreground: var(--destructive-foreground);
 }
 
+@theme {
+  --corner-shape-scoop: scoop;
+  --corner-shape-bevel: bevel;
+  --corner-shape-notch: notch;
+  --corner-shape-square: square;
+  --corner-shape-squircle: squircle;
+  --corner-shape-smooth: superellipse(1.2);
+}
+
+@utility corner-* {
+  corner-shape: --value(--corner-shape-*);
+  corner-shape: --value([*]);
+}
+
+@custom-variant supports-corner {
+  @supports (corner-shape: squircle) {
+    @slot;
+  }
+}
+
 :root {
   /* RADIUS */
   --radius: 0.625rem;
@@ -167,66 +187,6 @@
   .icon,
   .icon-y {
     @apply h-[1em];
-  }
-
-  .corner-squircle-sm {
-    border-radius: var(--radius-sm);
-    corner-shape: round;
-  }
-
-  @supports (corner-shape: squircle) {
-    .corner-squircle-sm {
-      border-radius: calc(var(--radius-md));
-      corner-shape: squircle;
-    }
-  }
-
-  .corner-squircle-md {
-    border-radius: var(--radius-md);
-    corner-shape: round;
-  }
-
-  @supports (corner-shape: squircle) {
-    .corner-squircle-md {
-      border-radius: calc(var(--radius-lg) * 2);
-      corner-shape: squircle;
-    }
-  }
-
-  .corner-squircle-lg {
-    border-radius: var(--radius-lg);
-    corner-shape: round;
-  }
-
-  @supports (corner-shape: squircle) {
-    .corner-squircle-lg {
-      border-radius: calc(var(--radius-xl) * 1.5);
-      corner-shape: squircle;
-    }
-  }
-
-  .corner-squircle-xl {
-    border-radius: var(--radius-xl);
-    corner-shape: round;
-  }
-
-  @supports (corner-shape: squircle) {
-    .corner-squircle-xl {
-      border-radius: calc(var(--radius-xl) * 1.5);
-      corner-shape: squircle;
-    }
-  }
-
-  .corner-squircle {
-    border-radius: var(--radius-xl);
-    corner-shape: round;
-  }
-
-  @supports (corner-shape: squircle) {
-    .corner-squircle {
-      border-radius: calc(var(--radius-xl) * 1.5);
-      corner-shape: squircle;
-    }
   }
 
   /* Outlined borders (bottom) */
