@@ -79,7 +79,8 @@ export function ComponentDemoLayout({
               "overflow-hidden rounded-2xl corner-squircle supports-corner:rounded-3xl h-[380px] relative mt-10 outline-1 outline-border",
               decoratedBackground &&
                 "bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(0,0,0,0.05)_10px,rgba(0,0,0,0.03)_11px)]",
-              "dark:bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(255,255,255,0.03)_10px,rgba(255,255,255,0.03)_11px)]",
+              decoratedBackground &&
+                "dark:bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(255,255,255,0.03)_10px,rgba(255,255,255,0.03)_11px)]",
               className,
             )}
           >

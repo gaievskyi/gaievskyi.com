@@ -100,7 +100,7 @@ type TransactionDetailsProps = {
 function TransactionDetails({ transaction }: TransactionDetailsProps) {
   return (
     <div>
-      <div className="flex items-center gap-1 text-sm font-medium tracking-tighter text-gray-600 dark:text-[#B5B3AD]">
+      <div className="flex items-center gap-1 text-sm font-medium tracking-tighter text-gray-600 dark:text-[#93918b]">
         Sending to{" "}
         <Image
           unoptimized
@@ -127,11 +127,11 @@ function TransactionAmount({ amount }: TransactionAmountProps) {
   return (
     <div className="text-right ">
       {amount === "Fee Only" ? (
-        <div className="rounded-md border border-gray-200 bg-gray-50 px-2 py-1 text-xs font-semibold text-gray-600 dark:border-zinc-700 dark:bg-background/30 dark:text-zinc-400">
+        <div className="rounded-md border border-gray-200 bg-gray-50 px-1.5 py-0.5 text-sm font-bold text-gray-600 dark:border-zinc-800 dark:bg-background/30 dark:text-[#93918b]">
           Fee Only
         </div>
       ) : (
-        <div className="text-lg font-semibold text-gray-600 dark:text-[#B5B3AD]">
+        <div className="text-lg font-semibold text-gray-600 dark:text-[#93918b]">
           {amount}
         </div>
       )}
@@ -150,8 +150,8 @@ type TransactionCardProps = {
 
 function TransactionCard({ transaction, index }: TransactionCardProps) {
   return (
-    <div className="rounded-xl border border-gray-200 bg-white p-2 dark:border-zinc-700/30 dark:bg-[#111111]">
-      <div className="flex items-center justify-between">
+    <div className="rounded-2xl border border-gray-200 bg-white p-2.5 dark:border-zinc-700/30 dark:bg-[#111111]">
+      <div className="flex items-end justify-between">
         <div className="flex items-center gap-2.5">
           <TransactionAvatar transaction={transaction} index={index} />
           <TransactionDetails transaction={transaction} />
@@ -191,7 +191,7 @@ function PendingHeader({
         />
       </div>
       <div className="flex items-center gap-1.5">
-        <span className="text-xl font-semibold text-gray-900 dark:text-white">
+        <span className="text-lg font-semibold text-gray-900 dark:text-white">
           {pendingCount}
         </span>
         <motion.div
@@ -268,7 +268,7 @@ export function FamilyTransactions() {
                   animate={
                     isExpanded
                       ? {
-                          y: index * 73,
+                          y: index * 78,
                           scale: 1,
                           opacity: 1,
                           zIndex: mockPendingTransactions.length - index,
