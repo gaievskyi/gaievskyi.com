@@ -1,8 +1,17 @@
 "use client"
 
 import { AnimatedGroup } from "@/components/animated-group"
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
 import { Flex } from "@/components/ui/layout/flex"
 import { Heading } from "@/components/ui/typography/heading"
+import Link from "next/link"
 import { use } from "react"
 import type { Project } from "../../../../../../payload-types"
 
@@ -49,18 +58,31 @@ export function ProjectContent({ projectPromise }: ProjectContentProps) {
       className="mb-4 flex w-full items-center"
     >
       <Flex direction="col" gap="xs">
-        <Heading size="3xl" weight="medium">
-          {project.title}
-        </Heading>
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink render={<Link href="/" />}>Index</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>Projects</BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>
+                <Heading size="lg" weight="medium" className="tracking-tight">
+                  {project.title}
+                </Heading>
+              </BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
         <time
-          dateTime={projectDate.toISOString()}
+          dateTime={project.createdAt}
           className="text-xs text-muted-foreground sm:text-sm"
         >
-          {projectDate.toLocaleDateString("en-US", {
-            month: "short",
-            day: "numeric",
+          {Intl.DateTimeFormat(undefined, {
+            month: "long",
             year: "numeric",
-          })}
+          }).format(new Date(project.createdAt))}
         </time>
       </Flex>
     </AnimatedGroup>

@@ -4,14 +4,22 @@ import { DraftIndicator } from "@/cms/draft-indicator"
 import { LivePreviewListener } from "@/cms/live-preview-listener"
 import { RichText } from "@/cms/rich-text"
 import { BackAside } from "@/components/back-aside"
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
 import { Illustration } from "@/components/ui/illustration"
 import { Flex } from "@/components/ui/layout/flex"
 import { generateTableOfContents } from "@/components/ui/table-of-contents/generate-toc"
 import { TableOfContents } from "@/components/ui/table-of-contents/table-of-contents"
 import { Heading } from "@/components/ui/typography/heading"
-import { Text } from "@/components/ui/typography/text"
 import type { Metadata } from "next"
 import { draftMode } from "next/headers"
+import Link from "next/link"
 import { notFound } from "next/navigation"
 import Script from "next/script"
 import type { Article, WithContext } from "schema-dts"
@@ -102,23 +110,46 @@ export default async function ArticlePage({
           </div>
           <Flex as="main" justify="center" className="px-6 lg:px-0">
             <article className="container w-full">
-              <header className="mt-8 mb-12">
+              <header className="mt-8 mb-20">
+                <Flex align="center" justify="between" className="mb-6">
+                  <Breadcrumb>
+                    <BreadcrumbList>
+                      <BreadcrumbItem>
+                        <BreadcrumbLink render={<Link href="/" />}>
+                          Index
+                        </BreadcrumbLink>
+                      </BreadcrumbItem>
+                      <BreadcrumbSeparator />
+                      <BreadcrumbItem>Blog</BreadcrumbItem>
+                      <BreadcrumbSeparator />
+                      <BreadcrumbItem>
+                        <BreadcrumbPage>
+                          <Heading
+                            size="lg"
+                            weight="medium"
+                            className="tracking-tight"
+                          >
+                            {article.title}
+                          </Heading>
+                        </BreadcrumbPage>
+                      </BreadcrumbItem>
+                    </BreadcrumbList>
+                  </Breadcrumb>
+                  {article.publishedAt && (
+                    <time
+                      dateTime={article.publishedAt}
+                      className="text-xs text-muted-foreground sm:text-sm"
+                    >
+                      {Intl.DateTimeFormat(undefined, {
+                        dateStyle: "long",
+                      }).format(new Date(article.publishedAt))}
+                    </time>
+                  )}
+                </Flex>
                 {article.illustration &&
                   typeof article.illustration !== "number" && (
                     <Illustration src={article.illustration} />
                   )}
-                <Flex direction="col">
-                  <Heading size="lg" weight="medium" className="tracking-tight">
-                    {article.title}
-                  </Heading>
-                  {article.publishedAt && (
-                    <Text size="sm" color="muted">
-                      {Intl.DateTimeFormat(undefined, {
-                        dateStyle: "long",
-                      }).format(new Date(article.publishedAt))}
-                    </Text>
-                  )}
-                </Flex>
               </header>
               <RichText data={article.content} enableGutter={false} />
             </article>

@@ -3,9 +3,18 @@ import {
   BottomNavigation,
   type NavigationItem,
 } from "@/components/crafts/bottom-navigation"
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
 import { Flex } from "@/components/ui/layout/flex"
 import { Heading } from "@/components/ui/typography/heading"
 import { cn } from "@/lib/utils"
+import Link from "next/link"
 import type { ReactNode } from "react"
 import { ViewTransition } from "react"
 
@@ -34,11 +43,32 @@ export function ComponentDemoLayout({
     <>
       <BackAside />
       <article className="container flex h-svh w-full flex-col justify-center px-4 pt-12 sm:px-0">
-        <Flex direction="col">
-          <Heading weight="semibold">{title}</Heading>
-          <Heading as="h2" size="sm" color="muted">
+        <Flex direction="col" gap="xs">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink render={<Link href="/" />}>
+                  Index
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>Crafts</BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>
+                  <Heading size="lg" weight="medium" className="tracking-tight">
+                    {title}
+                  </Heading>
+                </BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+          <time
+            dateTime={date}
+            className="text-xs text-muted-foreground sm:text-sm"
+          >
             {date}
-          </Heading>
+          </time>
         </Flex>
         <ViewTransition name={`video-${slug}`}>
           <Flex

@@ -10,20 +10,16 @@ type BackAsideProps = {
 export function BackAside({ children }: BackAsideProps) {
   return (
     <>
-      <aside className="isolate z-[51] h-fit lg:fixed lg:top-10 lg:left-2 lg:ml-2">
+      <aside className="isolate z-51 h-fit lg:fixed lg:top-10 lg:left-2 lg:ml-2">
         <Link href="/">
-          <Button
-            variant="link"
-            aria-label="Go back"
-            size="sm"
-            className="space-x-1 text-base"
-          >
-            <Icon name="sprite:arrow-back" /> <span>Index</span>
+          <Button variant="link" aria-label="Go back" size="sm">
+            <Icon name="sprite:arrow-back" className="size-4.5" />{" "}
+            <span>Index</span>
           </Button>
         </Link>
         {children}
       </aside>
-      <div className="fixed bottom-8 left-6 z-[51] hidden sm:block">
+      <div className="fixed bottom-8 left-6 z-51 hidden sm:block">
         <ThemeSwitch />
       </div>
     </>
