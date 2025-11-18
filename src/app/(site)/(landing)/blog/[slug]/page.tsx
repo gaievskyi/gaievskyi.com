@@ -91,20 +91,11 @@ export default async function ArticlePage({
       <LivePreviewListener />
       {isDraft && <DraftIndicator />}
       <div className="relative min-h-screen">
-        <div className="px-4 pt-4 lg:hidden">
-          <Aside>
-            <TableOfContents
-              containerSelector="article"
-              items={tocItems}
-              className="py-8"
-            />
-          </Aside>
-        </div>
         <div className="pb-28 lg:grid lg:grid-cols-[280px_1fr_280px] lg:gap-6 lg:px-6 lg:pt-4">
-          <div className="hidden lg:block">
+          <div className="fixed z-51 left-0 top-0  lg:static block">
             <Aside expandable>
-              <Text size="sm" weight="medium" className="mb-8 ml-4">
-                Reading "{article.title}"
+              <Text size="sm" weight="medium" className="mb-4 mt-6">
+                {article.title}
               </Text>
               <TableOfContents containerSelector="article" items={tocItems} />
             </Aside>

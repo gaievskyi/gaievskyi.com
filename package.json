@@ -4,16 +4,14 @@
   "private": true,
   "scripts": {
     "build": "next build --webpack",
-    "clean": "rimraf .next node_modules",
+    "clean": "bun --bun scripts/clean.ts",
     "dev": "next dev & bunx --bun next-video sync -w --dir ./src/videos",
     "format": "prettier --log-level warn --write --cache . ",
     "lint": "eslint src",
     "preview": "next build && next start",
     "start": "next start",
     "typecheck": "tsc -p ./tsconfig.json --noEmit --emitDeclarationOnly false",
-    "generate:importmap": "payload generate:importmap",
-    "generate:types": "payload generate:types",
-    "generate:sprite": "bun scripts/build-sprite.ts"
+    "sprite": "bun --bun scripts/build-sprite.ts"
   },
   "dependencies": {
     "@base-ui-components/react": "^1.0.0-beta.5",
@@ -56,6 +54,7 @@
     "@tailwindcss/postcss": "^4.1.17",
     "@tailwindcss/typography": "^0.5.19",
     "@total-typescript/ts-reset": "^0.6.1",
+    "@types/bun": "^1.3.2",
     "@types/lodash.kebabcase": "^4.1.9",
     "@types/node": "^22.19.1",
     "@types/react": "19.2.5",

@@ -1,11 +1,13 @@
-import { isProduction } from "@/lib/constants"
-import { env } from "../../env/env"
+type ScreenSizeIndicatorProps = {
+  enabled?: boolean
+}
 
-export function ScreenSizeIndicator() {
-  if (isProduction || env.HIDE_TAILWIND_INDICATOR) {
+export function ScreenSizeIndicator({
+  enabled = true,
+}: ScreenSizeIndicatorProps) {
+  if (!enabled) {
     return null
   }
-
   return (
     <div className="fixed right-3 bottom-2 z-999 grid size-6 place-content-center rounded-full p-3 font-mono text-xs text-white">
       <div className="block sm:hidden">xs</div>

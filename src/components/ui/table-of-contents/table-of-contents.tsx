@@ -4,28 +4,8 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
 import { useIsMobile } from "@/hooks/use-is-mobile"
 import { cn } from "@/lib/utils"
-import { AnimatePresence, motion, type Variants } from "motion/react"
 import { useCallback, useEffect, useRef, useState } from "react"
 import type { TocItem } from "./generate-toc"
-
-const itemVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    filter: "blur(4px)",
-    x: -15,
-  },
-  visible: {
-    filter: "blur(0px)",
-    opacity: 1,
-    x: 0,
-    transition: {
-      type: "spring",
-      stiffness: 400,
-      damping: 25,
-      mass: 0.8,
-    },
-  },
-}
 
 type TocItemProps = {
   item: TocItem
@@ -35,41 +15,51 @@ type TocItemProps = {
 }
 
 function TocItem({ item, isActive, onScrollTo, isMobile }: TocItemProps) {
+  const getTickWidth = () => {
+    if (item.level === 1) return isActive ? "w-12" : "w-8"
+    if (item.level === 2) return isActive ? "w-6" : "w-4"
+    return isActive ? "w-3" : "w-2"
+  }
+
   return (
-    <motion.button
+    <button
       aria-current={isActive ? "location" : undefined}
-      title={`Navigate to ${item.title}`}
-      variants={itemVariants}
+      title={`Go to "${item.title}"`}
       onClick={() => onScrollTo(item.id)}
       className={cn(
-        "block w-full text-left py-1 text-sm leading-relaxed transition-colors duration-200",
+        "relative flex items-center w-full text-left py-2 text-sm leading-relaxed transition-colors duration-200",
         "hover:text-zinc-900 dark:hover:text-zinc-100",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-900/20 dark:focus-visible:ring-zinc-100/20",
         "focus-visible:rounded-sm",
-        item.level === 1 && "font-medium text-zinc-600 dark:text-zinc-400",
-        item.level === 2 && "pl-4 text-xs text-zinc-500 dark:text-zinc-500",
-        item.level >= 3 && "pl-8 text-xs text-zinc-500 dark:text-zinc-500",
-        isActive && "text-zinc-900 dark:text-zinc-100 font-medium",
+        "after:absolute after:bottom-0 after:h-px after:bg-zinc-200 dark:after:bg-zinc-800 after:transition-all after:duration-200",
+        "last:after:hidden",
+        item.level === 1 && "gap-4 after:left-0 after:w-8",
+        item.level === 2 && "gap-3 after:left-0 after:w-4",
+        item.level >= 3 && "gap-2 after:left-0 after:w-2",
       )}
-      transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
-      <span className="relative flex items-center">
-        {isActive && !isMobile && (
-          <motion.span
-            aria-hidden="true"
-            className="absolute top-1/2 -left-4 -translate-y-1/2 text-zinc-900 dark:text-zinc-100"
-            layoutId="toc-indicator"
-            initial={{ opacity: 0, x: -4 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -4 }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          >
-            -
-          </motion.span>
+      <span
+        className={cn(
+          "shrink-0 relative flex items-center transition-all duration-200",
+          "before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-px before:w-full before:transition-all before:duration-200",
+          isActive
+            ? "before:bg-zinc-900 dark:before:bg-zinc-100"
+            : "before:bg-zinc-200 dark:before:bg-zinc-800",
+          getTickWidth(),
         )}
+      />
+      <span
+        className={cn(
+          "transition-colors duration-200",
+          item.level === 1 && "font-medium text-zinc-600 dark:text-zinc-400",
+          item.level === 2 && "text-xs text-zinc-500 dark:text-zinc-500",
+          item.level >= 3 && "text-xs text-zinc-500 dark:text-zinc-500",
+          isActive && "text-zinc-900 dark:text-zinc-100",
+        )}
+      >
         {item.title}
       </span>
-    </motion.button>
+    </button>
   )
 }
 
@@ -196,39 +186,20 @@ export function TableOfContents({
   }
 
   return (
-    <nav
-      className={cn("", className)}
-      aria-label="Table of contents"
-      role="navigation"
-    >
-      <AnimatePresence initial={false}>
-        <motion.div
-          initial={{ height: 0, opacity: 0 }}
-          animate={{ height: "auto", opacity: 1 }}
-          exit={{ height: 0, opacity: 0 }}
-          transition={{
-            type: "spring",
-            stiffness: 300,
-            damping: 30,
-            opacity: { duration: 0.2 },
-          }}
-          style={{ overflow: "hidden" }}
-        >
-          <ScrollArea className="h-fit max-h-[60svh]">
-            <div className="space-y-1 pr-3">
-              {items.map((item) => (
-                <TocItem
-                  key={item.id}
-                  item={item}
-                  isActive={activeId === item.id}
-                  onScrollTo={scrollToHeading}
-                  isMobile={isMobile}
-                />
-              ))}
-            </div>
-          </ScrollArea>
-        </motion.div>
-      </AnimatePresence>
+    <nav className={className} aria-label="Table of contents" role="navigation">
+      <ScrollArea className="h-fit max-h-[60svh]">
+        <div className="pr-3">
+          {items.map((item) => (
+            <TocItem
+              key={item.id}
+              item={item}
+              isActive={activeId === item.id}
+              onScrollTo={scrollToHeading}
+              isMobile={isMobile}
+            />
+          ))}
+        </div>
+      </ScrollArea>
     </nav>
   )
 }

@@ -2,12 +2,14 @@ import { LetHimCook } from "@/components/console-message"
 import { ScreenSizeIndicator } from "@/components/dev-screen-size-indicator"
 import { ProgressiveBlur } from "@/components/progressive-blur"
 import { Providers } from "@/components/providers"
+import { isProduction } from "@/lib/constants"
 import { geistMono, heldaneText } from "@/lib/fonts"
 import { getServerSideURL } from "@/lib/get-url"
 import "@/styles/globals.css"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import type { Metadata } from "next"
+import { env } from "../../../env/env"
 
 const url = getServerSideURL()
 const name = "Daniel Gaievskyi"
@@ -66,7 +68,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        suppressHydrationWarning
         className={`${geistMono.variable} ${heldaneText.variable} font-system root relative antialiased`}
       >
         <Providers>
@@ -77,7 +78,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           />
           {children}
         </Providers>
-        <ScreenSizeIndicator />
+        <ScreenSizeIndicator
+          enabled={!isProduction || !env.HIDE_TAILWIND_INDICATOR}
+        />
       </body>
       <LetHimCook />
       <SpeedInsights />

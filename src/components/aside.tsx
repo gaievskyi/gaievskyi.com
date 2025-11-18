@@ -1,8 +1,12 @@
 "use client"
 
 import { ThemeSwitch } from "@/components/theme-switch"
-import { Icon } from "@/components/ui/icon"
 import { Toggle } from "@/components/ui/toggle"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import { useState } from "react"
 
 type AsideProps = {
@@ -46,22 +50,31 @@ export function Aside({ children, expandable = false }: AsideProps) {
 
   return (
     <aside
-      className="group isolate z-51 h-full lg:fixed lg:top-0 lg:left-0 -translate-x-[220px] transition-transform duration-600 ease-[cubic-bezier(0.32,0.72,0,1)] will-change-transform data-[state=expanded]:translate-x-0"
+      className="group isolate z-51 h-full lg:fixed lg:top-0 lg:left-0 -translate-x-[280px] lg:-translate-x-[250px] transition-transform duration-700 data-[state=collapsed]:duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] will-change-transform data-[state=expanded]:translate-x-0"
       data-state={state}
       onMouseEnter={expand}
       onMouseLeave={collapse}
     >
-      <div className="relative h-full w-60 rounded-r-3xl border-r bg-background/95 backdrop-blur-sm py-6 px-6">
-        <Toggle
-          onClick={pin}
-          className="absolute top-1/2 delay-100 transition-colors -right-8 -translate-y-2/3 rounded-r-xl flex items-center gap-2 px-0 py-12 rounded-l-none before:rounded-l-none border-y border-r bg-background/95 border-border"
-        >
-          <Icon name="sprite:ellipsis-vertical" className="size-6!" />
-        </Toggle>
-        <div className="flex items-center gap-2 mb-8 ml-3">
+      <div className="relative backdrop-blur-xl h-full ml-2 mb-4 w-70 rounded-3xl bg-white/70 dark:bg-black/40 border dark:border-white/[0.08] py-6 px-6">
+        <Tooltip>
+          <TooltipTrigger
+            render={
+              <Toggle
+                onClick={pin}
+                className="absolute group top-1/2 delay-100 -right-6 lg:-right-8 -translate-y-2/3 rounded-r-xl rounded-l-none px-0 py-12"
+              >
+                <span className="h-12 w-0.5 bg-muted-foreground rounded-full" />
+              </Toggle>
+            }
+          />
+          <TooltipContent side="right">
+            {isPinned ? "Unpin" : "Pin"}
+          </TooltipContent>
+        </Tooltip>
+        {children}
+        <div className="fixed bottom-11 left-7 z-51 hidden sm:block">
           <ThemeSwitch />
         </div>
-        {children}
       </div>
     </aside>
   )
