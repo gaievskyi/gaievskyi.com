@@ -3,14 +3,13 @@ import { ScreenSizeIndicator } from "@/components/dev-screen-size-indicator"
 import { ProgressiveBlur } from "@/components/progressive-blur"
 import { Providers } from "@/components/providers"
 import { Snowfall } from "@/components/snowfall/snowfall"
-import { isProduction } from "@/lib/constants"
+import { isDevelopment } from "@/lib/constants"
 import { geistMono, heldaneText } from "@/lib/fonts"
 import { getServerSideURL } from "@/lib/get-url"
 import "@/styles/globals.css"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import type { Metadata } from "next"
-import { env } from "../../../env/env"
 
 const url = getServerSideURL()
 const name = "Daniel Gaievskyi"
@@ -80,9 +79,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Snowfall />
           {children}
         </Providers>
-        <ScreenSizeIndicator
-          enabled={!isProduction || !env.HIDE_TAILWIND_INDICATOR}
-        />
+        <ScreenSizeIndicator enabled={isDevelopment} />
       </body>
       <LetHimCook />
       <SpeedInsights />
