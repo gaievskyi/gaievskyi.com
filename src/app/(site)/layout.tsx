@@ -3,7 +3,7 @@ import { ScreenSizeIndicator } from "@/components/dev-screen-size-indicator"
 import { ProgressiveBlur } from "@/components/progressive-blur"
 import { Providers } from "@/components/providers"
 import { Snowfall } from "@/components/snowfall/snowfall"
-import { isDevelopment } from "@/lib/constants"
+import { isDevelopment, isProduction } from "@/lib/constants"
 import { geistMono, heldaneText } from "@/lib/fonts"
 import { getServerSideURL } from "@/lib/get-url"
 import "@/styles/globals.css"
@@ -82,8 +82,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <ScreenSizeIndicator enabled={isDevelopment} />
       </body>
       <LetHimCook />
-      <SpeedInsights />
-      <Analytics mode="production" />
+      {isProduction && <SpeedInsights />}
+      {isProduction && <Analytics mode="production" />}
     </html>
   )
 }

@@ -39,7 +39,7 @@ const ORNAMENT_STYLES = {
 
 export function ChristmasTree() {
   return (
-    <div className="relative size-[32px_40px] overflow-visible">
+    <div className="relative size-[32px_40px] overflow-visible mb-1">
       <svg
         width="32"
         height="40"
