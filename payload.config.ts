@@ -2,7 +2,6 @@ import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob"
 import { getServerSideURL } from "@/lib/get-url"
 import type { Article, Project } from "./payload-types"
 import { postgresAdapter } from "@payloadcms/db-postgres"
-import { payloadCloudPlugin } from "@payloadcms/payload-cloud"
 import { seoPlugin } from "@payloadcms/plugin-seo"
 import { lexicalEditor } from "@payloadcms/richtext-lexical"
 import path from "node:path"
@@ -60,7 +59,6 @@ export default buildConfig({
       },
       token: env.BLOB_READ_WRITE_TOKEN,
     }),
-    payloadCloudPlugin(),
     seoPlugin({
       generateTitle: ({ doc }: { doc: Article | Project }) => {
         return doc?.title ? `${doc.title}` : ""
