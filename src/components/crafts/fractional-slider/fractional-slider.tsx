@@ -1,14 +1,14 @@
 "use client"
 
+import { useSound } from "@/hooks/use-sound"
 import { cn } from "@/lib/utils"
 import {
   motion,
-  useWillChange,
   useMotionValue,
   useTransform,
+  useWillChange,
 } from "motion/react"
 import { useEffect, useRef, useState } from "react"
-import { useSound } from "@/hooks/use-sound"
 
 const MIN = -90
 const MAX = 90
@@ -82,7 +82,7 @@ function Ticks({
 
 function Indicator() {
   return (
-    <div className="absolute bottom-31 left-1/2 size-0 -translate-x-1/2 rotate-180 transform cursor-grab border-t-[8px] border-r-[4px] border-l-[4px] border-t-red-500 border-r-transparent border-l-transparent active:cursor-grabbing" />
+    <div className="absolute bottom-31 left-1/2 size-0 -translate-x-1/2 rotate-180 transform cursor-grab border-t-8 border-r-4 border-l-4 border-t-red-500 border-r-transparent border-l-transparent active:cursor-grabbing" />
   )
 }
 

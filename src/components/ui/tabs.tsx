@@ -1,7 +1,7 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { Tabs as TabsPrimitive } from "@base-ui-components/react/tabs"
+import { Tabs as TabsPrimitive } from "@base-ui/react/tabs"
 
 type TabsVariant = "default" | "underline"
 
@@ -68,7 +68,7 @@ function TabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {
       data-slot="tabs-trigger"
       className={cn(
         "flex flex-1 shrink-0 cursor-pointer items-center justify-center corner-squircle rounded-(--tabs-inner-radius) supports-corner:rounded-(--tabs-inner-radius-squircle) border border-transparent text-sm font-medium whitespace-nowrap transition-[color,background-color,box-shadow] outline-none focus-visible:ring-2 focus-visible:ring-ring data-disabled:pointer-events-none data-disabled:opacity-64 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
-        "hover:text-muted-foreground data-selected:text-foreground",
+        "hover:text-muted-foreground data-active:text-foreground",
         "gap-1.5 px-[calc(--spacing(2.5)-1px)] py-[calc(--spacing(1.5)-1px)]",
         "data-[orientation=vertical]:w-full data-[orientation=vertical]:justify-start",
         className,

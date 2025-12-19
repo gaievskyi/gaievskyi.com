@@ -1,7 +1,7 @@
 import { Icon } from "@/components/ui/icon"
 import { cn } from "@/lib/utils"
-import { mergeProps } from "@base-ui-components/react/merge-props"
-import { useRender } from "@base-ui-components/react/use-render"
+import { mergeProps } from "@base-ui/react/merge-props"
+import { useRender } from "@base-ui/react/use-render"
 import type * as React from "react"
 
 function Breadcrumb({ ...props }: React.ComponentProps<"nav">) {

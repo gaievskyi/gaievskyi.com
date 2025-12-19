@@ -8,7 +8,7 @@ export function DynamicIslandTimer() {
   const [isPaused, setIsPaused] = useState(false)
 
   return (
-    <div className="flex w-[284px] items-center gap-2 py-3 pr-5 pl-3.5">
+    <div className="flex w-[270px] items-center gap-2 py-2 pr-4 pl-3">
       <motion.button
         aria-label="Pause timer"
         onClick={() => setIsPaused((p) => !p)}
@@ -27,7 +27,7 @@ export function DynamicIslandTimer() {
         aria-label="Exit"
         className="flex h-10 w-10 items-center justify-center rounded-full bg-[#3C3D3C] text-white transition-colors hover:bg-[#4A4B4A]"
       >
-        <Icon name="sprite:x" className="text-xl" />
+        <Icon name="sprite:x" className="text-2xl" />
       </button>
       <div className="ml-auto flex items-baseline gap-1.5 pr-0.5 text-[#F7A815]">
         <Counter paused={isPaused} />

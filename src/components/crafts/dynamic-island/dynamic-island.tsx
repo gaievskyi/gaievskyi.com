@@ -24,142 +24,114 @@ const ANIMATION_VARIANTS = {
   "ring-idle": {
     scale: 0.9,
     scaleX: 0.9,
-    bounce: 0.5,
   },
   "timer-ring": {
     scale: 0.7,
     y: -7.5,
-    bounce: 0.35,
   },
   "ring-timer": {
     scale: 1.4,
     y: 7.5,
-    bounce: 0.35,
   },
   "timer-idle": {
     scale: 0.7,
     y: -7.5,
-    bounce: 0.3,
   },
   "music-idle": {
     scale: 0.5,
     y: -30,
-    bounce: 0.3,
   },
   "idle-music": {
     scale: 1,
     y: 8,
-    bounce: 0.3,
   },
   "music-timer": {
     scale: 1,
     y: -30,
-    bounce: 0.4,
   },
   "timer-music": {
     scale: 0.3,
     y: 20,
-    bounce: 0.35,
   },
   "music-ring": {
     scale: 0.5,
     y: -50,
-    bounce: 0.3,
   },
   "ring-music": {
     scale: 1.3,
     y: 2.5,
-    bounce: 0.4,
   },
   "voice-idle": {
     scale: 0.75,
     y: -10,
-    bounce: 0.3,
   },
   "idle-voice": {
     scale: 1.2,
     y: 10,
-    bounce: 0.3,
   },
   "voice-ring": {
     scale: 0.7,
     y: -8,
-    bounce: 0.35,
   },
   "ring-voice": {
     scale: 1.4,
     y: 8,
-    bounce: 0.35,
   },
   "voice-timer": {
     scale: 0.8,
     y: -6,
-    bounce: 0.35,
   },
   "timer-voice": {
     scale: 1.1,
     y: 6,
-    bounce: 0.35,
   },
   "voice-music": {
     scale: 0.75,
     y: -8,
-    bounce: 0.4,
   },
   "music-voice": {
     scale: 1,
     y: -30,
-    bounce: 0.4,
   },
   "call-idle": {
     scale: 0.8,
     y: -8,
-    bounce: 0.3,
   },
   "idle-call": {
     scale: 1,
     y: 8,
-    bounce: 0.3,
   },
   "call-ring": {
     scale: 0.9,
     y: -2.5,
-    bounce: 0.4,
   },
   "ring-call": {
     scale: 1.3,
     y: 2.5,
-    bounce: 0.4,
   },
   "call-timer": {
     scale: 0.9,
     y: -8,
-    bounce: 0.4,
   },
   "timer-call": {
     scale: 1.1,
     y: 5,
-    bounce: 0.35,
   },
   "call-music": {
     scale: 0.8,
     y: -6,
-    bounce: 0.4,
   },
   "music-call": {
     scale: 1,
     y: -30,
-    bounce: 0.4,
   },
   "call-voice": {
     scale: 0.9,
     y: -8,
-    bounce: 0.4,
   },
   "voice-call": {
     scale: 0.8,
     y: -6,
-    bounce: 0.35,
   },
 }
 
@@ -172,27 +144,27 @@ const BOUNCE_VARIANTS = {
   "idle-timer": 0.3,
   "idle-ring": 0.5,
   "music-idle": 0.3,
-  "idle-music": 0.3,
-  "music-timer": 0.35,
-  "timer-music": 0.35,
+  "idle-music": 0.2,
+  "music-timer": 0.3,
+  "timer-music": 0.2,
   "music-ring": 0.4,
-  "ring-music": 0.3,
+  "ring-music": 0.2,
   "voice-idle": 0.3,
   "idle-voice": 0.3,
   "voice-ring": 0.35,
   "ring-voice": 0.35,
   "voice-timer": 0.35,
   "timer-voice": 0.35,
-  "voice-music": 0.3,
-  "music-voice": 0.4,
+  "voice-music": 0.2,
+  "music-voice": 0.25,
   "call-idle": 0.3,
   "idle-call": 0.3,
   "call-ring": 0.4,
   "ring-call": 0.4,
   "call-timer": 0.35,
   "timer-call": 0.35,
-  "call-music": 0.3,
-  "music-call": 0.4,
+  "call-music": 0.2,
+  "music-call": 0.25,
   "call-voice": 0.4,
   "voice-call": 0.4,
 }
@@ -226,7 +198,7 @@ function DynamicIslandControls({
           >
             <TabsList>
               {VIEW_VARIANTS.map((view) => (
-                <TabsTrigger key={view} value={view} className="capitalize">
+                <TabsTrigger key={view} value={view} className="capitalize ">
                   {view}
                 </TabsTrigger>
               ))}
@@ -283,6 +255,10 @@ export function DynamicIsland() {
           transition={{
             type: "spring",
             bounce: BOUNCE_VARIANTS[variantKey as keyof typeof BOUNCE_VARIANTS],
+            mass: 1,
+            stiffness: 150,
+            damping: 16,
+            restDelta: 0.001,
           }}
           style={{ borderRadius: 32 }}
           className="mx-auto w-fit min-w-[120px] overflow-hidden rounded-full bg-black"
@@ -295,7 +271,7 @@ export function DynamicIsland() {
                 BOUNCE_VARIANTS[variantKey as keyof typeof BOUNCE_VARIANTS],
             }}
             initial={{
-              scale: 0.9,
+              scale: 0.8,
               opacity: 0,
               filter: "blur(5px)",
               origin: 0.5,
@@ -306,7 +282,7 @@ export function DynamicIsland() {
               filter: "blur(0px)",
               origin: 0.5,
               transition: {
-                delay: 0.05,
+                delay: 0.1,
               },
             }}
           >
