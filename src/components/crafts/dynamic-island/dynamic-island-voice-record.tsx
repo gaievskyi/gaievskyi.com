@@ -1,4 +1,4 @@
-import { motion } from "motion/react"
+import * as m from "motion/react-m"
 import { useEffect, useState } from "react"
 
 const formatTime = (totalSeconds: number) => {
@@ -74,7 +74,7 @@ export function DynamicIslandVoiceRecord() {
       <div className="flex h-5 items-center gap-0.5">
         {/* Fixed orange bars on the left */}
         {waveformHeights.slice(0, 12).map((height, index) => (
-          <motion.div
+          <m.div
             key={`orange-${index}`}
             className="w-0.5 rounded-full bg-gradient-to-t from-red-500 via-red-400 to-orange-400"
             animate={{ height }}

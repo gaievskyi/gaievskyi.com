@@ -1,6 +1,7 @@
 "use client"
 
-import { motion, type Variants } from "motion/react"
+import { type Variants } from "motion/react"
+import * as m from "motion/react-m"
 import {
   Children,
   useMemo,
@@ -65,11 +66,11 @@ function AnimatedGroup({
   const itemVariants = variants?.item || selectedVariants.item
 
   const MotionComponent = useMemo(
-    () => motion.create(as as keyof JSX.IntrinsicElements),
+    () => m.create(as as keyof JSX.IntrinsicElements),
     [as],
   )
   const MotionChild = useMemo(
-    () => motion.create(asChild as keyof JSX.IntrinsicElements),
+    () => m.create(asChild as keyof JSX.IntrinsicElements),
     [asChild],
   )
 

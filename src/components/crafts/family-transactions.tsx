@@ -2,7 +2,8 @@
 
 import { Icon } from "@/components/ui/icon"
 import { useSound } from "@/hooks/use-sound"
-import { LayoutGroup, motion } from "motion/react"
+import { LayoutGroup } from "motion/react"
+import * as m from "motion/react-m"
 import Image from "next/image"
 import { useState } from "react"
 
@@ -174,7 +175,7 @@ function PendingHeader({
   onToggle,
 }: PendingHeaderProps) {
   return (
-    <motion.div
+    <m.div
       layout
       whileTap={{ scale: 0.97 }}
       transition={{ type: "spring", stiffness: 500, damping: 35 }}
@@ -194,7 +195,7 @@ function PendingHeader({
         <span className="text-lg font-semibold text-gray-900 dark:text-white">
           {pendingCount}
         </span>
-        <motion.div
+        <m.div
           initial={false}
           animate={{
             rotate: isExpanded ? 0 : -180,
@@ -205,9 +206,9 @@ function PendingHeader({
             name="sprite:chevron-up"
             className="text-2xl text-gray-500 dark:text-zinc-500"
           />
-        </motion.div>
+        </m.div>
       </div>
-    </motion.div>
+    </m.div>
   )
 }
 
@@ -234,7 +235,7 @@ export function FamilyTransactions() {
         </div>
 
         <div className="px-4 pb-4">
-          <motion.div
+          <m.div
             layout="position"
             className="relative"
             animate={{
@@ -261,7 +262,7 @@ export function FamilyTransactions() {
             {mockPendingTransactions.map((transaction, index) => {
               const showWhenCollapsed = index < 3
               return (
-                <motion.div
+                <m.div
                   key={transaction.id}
                   layoutId={`transaction-${transaction.id}`}
                   initial={false}
@@ -298,10 +299,10 @@ export function FamilyTransactions() {
                   className="absolute inset-x-0 top-0"
                 >
                   <TransactionCard transaction={transaction} index={index} />
-                </motion.div>
+                </m.div>
               )
             })}
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </LayoutGroup>

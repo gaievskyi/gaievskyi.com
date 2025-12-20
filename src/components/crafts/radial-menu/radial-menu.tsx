@@ -1,7 +1,8 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { AnimatePresence, motion, useSpring, useTransform } from "motion/react"
+import { AnimatePresence, useSpring, useTransform } from "motion/react"
+import * as m from "motion/react-m"
 import { useEffect, useMemo, useRef, useState } from "react"
 import {
   CENTER_RADIUS,
@@ -169,7 +170,7 @@ function RadialMenuActiveIndicator() {
   }
 
   return (
-    <motion.path
+    <m.path
       className="fill-none stroke-gray-300 stroke-8 dark:stroke-[#4a4a4a]"
       d={pathTransform}
     />
@@ -230,7 +231,7 @@ function RadialMenuOverlay({ children }: { children: React.ReactNode }) {
   return (
     <AnimatePresence>
       {visible && (
-        <motion.div
+        <m.div
           ref={menuRef}
           exit={{ opacity: 0, scale: 0.9 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
@@ -246,7 +247,7 @@ function RadialMenuOverlay({ children }: { children: React.ReactNode }) {
           onPointerMove={onPointerMoveMenu}
         >
           {children}
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   )

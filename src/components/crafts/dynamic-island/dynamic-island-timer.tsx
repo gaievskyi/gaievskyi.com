@@ -1,7 +1,8 @@
 import { Icon } from "@/components/ui/icon"
 import { useInterval } from "@/hooks/use-inteval"
 import NumberFlow from "@number-flow/react"
-import { AnimatePresence, motion } from "motion/react"
+import { AnimatePresence } from "motion/react"
+import * as m from "motion/react-m"
 import { useState } from "react"
 
 export function DynamicIslandTimer() {
@@ -9,7 +10,7 @@ export function DynamicIslandTimer() {
 
   return (
     <div className="flex w-[270px] items-center gap-2 py-2 pr-4 pl-3">
-      <motion.button
+      <m.button
         aria-label="Pause timer"
         onClick={() => setIsPaused((p) => !p)}
         whileTap={{ scale: 0.9 }}
@@ -22,7 +23,7 @@ export function DynamicIslandTimer() {
             <Icon name="sprite:pause" className="text-xl text-[#FDB000]!" />
           )}
         </AnimatePresence>
-      </motion.button>
+      </m.button>
       <button
         aria-label="Exit"
         className="flex h-10 w-10 items-center justify-center rounded-full bg-[#3C3D3C] text-white transition-colors hover:bg-[#4A4B4A]"

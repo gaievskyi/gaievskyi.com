@@ -2,7 +2,8 @@
 
 import { RadialMenu } from "@/components/crafts/radial-menu/radial-menu"
 import { Icon } from "@/components/ui/icon"
-import { AnimatePresence, motion } from "motion/react"
+import { AnimatePresence } from "motion/react"
+import * as m from "motion/react-m"
 import { useRef, useState } from "react"
 
 const items = [
@@ -39,7 +40,7 @@ export function RadialMenuDemo() {
     <div ref={demoContainerRef} className="relative size-full">
       <AnimatePresence initial={false}>
         {!menuVisible && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -48,7 +49,7 @@ export function RadialMenuDemo() {
             className="pointer-events-none absolute top-1/2 left-1/2 -translate-1/2 text-sm text-nowrap text-gray-500 select-none dark:text-[#a0a0a0]"
           >
             Hold and rotate from anywhere
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
       <RadialMenu

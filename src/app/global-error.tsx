@@ -20,7 +20,7 @@ import { Icon } from "@/components/ui/icon"
 import { Flex } from "@/components/ui/layout/flex"
 import { heldaneText } from "@/lib/fonts"
 import "@/styles/globals.css"
-import { motion } from "motion/react"
+import * as m from "motion/react-m"
 import { useEffect, useState } from "react"
 
 type GlobalErrorPageProps = {
@@ -45,7 +45,7 @@ export default function GlobalErrorPage({
         suppressHydrationWarning
       >
         <Providers>
-          <motion.div
+          <m.div
             initial={{
               opacity: 0,
               filter: "blur(5px)",
@@ -58,7 +58,7 @@ export default function GlobalErrorPage({
               Critical
             </FuzzyText>
             <FuzzyText fontSize={200}>Error</FuzzyText>
-          </motion.div>
+          </m.div>
           <Flex
             direction="col"
             gap="lg"

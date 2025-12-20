@@ -2,13 +2,16 @@
 
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { AnimatePresence, motion, type Variants } from "motion/react"
+import { AnimatePresence, LazyMotion, type Variants } from "motion/react"
+import * as m from "motion/react-m"
 import { useState } from "react"
 import { DynamicIslandCall } from "./dynamic-island-call"
 import { DynamicIslandMusic } from "./dynamic-island-music"
 import { DynamicIslandRing } from "./dynamic-island-ring"
 import { DynamicIslandTimer } from "./dynamic-island-timer"
 import { DynamicIslandVoiceRecord } from "./dynamic-island-voice-record"
+
+const domMax = () => import("@/components/dom-max").then((mod) => mod.default)
 
 const variants: Variants = {
   exit: (transition) => {
@@ -248,66 +251,71 @@ export function DynamicIsland() {
   }
 
   return (
-    <div className="h-[300px]">
-      <div className="relative flex h-full w-full flex-col justify-between">
-        <motion.div
-          layout
-          transition={{
-            type: "spring",
-            bounce: BOUNCE_VARIANTS[variantKey as keyof typeof BOUNCE_VARIANTS],
-            mass: 1,
-            stiffness: 150,
-            damping: 16,
-            restDelta: 0.001,
-          }}
-          style={{ borderRadius: 32 }}
-          className="mx-auto w-fit min-w-[120px] overflow-hidden rounded-full bg-black"
-        >
-          <motion.div
-            key={view}
+    <LazyMotion strict features={domMax}>
+      <div className="h-[300px]">
+        <div className="relative flex h-full w-full flex-col justify-between">
+          <m.div
+            layout
             transition={{
               type: "spring",
               bounce:
                 BOUNCE_VARIANTS[variantKey as keyof typeof BOUNCE_VARIANTS],
+              mass: 1,
+              stiffness: 150,
+              damping: 16,
+              restDelta: 0.001,
             }}
-            initial={{
-              scale: 0.8,
-              opacity: 0,
-              filter: "blur(5px)",
-              origin: 0.5,
-            }}
-            animate={{
-              scale: 1,
-              opacity: 1,
-              filter: "blur(0px)",
-              origin: 0.5,
-              transition: {
-                delay: 0.1,
-              },
-            }}
+            style={{ borderRadius: 32 }}
+            className="mx-auto w-fit min-w-[120px] overflow-hidden rounded-full bg-black"
           >
-            <DynamicIslandContent view={view} />
-          </motion.div>
-        </motion.div>
-        <div className="pointer-events-none absolute top-0 left-1/2 flex h-[200px] w-[300px] -translate-x-1/2 items-start justify-center">
-          <AnimatePresence
-            mode="popLayout"
-            custom={
-              ANIMATION_VARIANTS[variantKey as keyof typeof ANIMATION_VARIANTS]
-            }
-          >
-            <motion.div
-              initial={{ opacity: 0 }}
-              exit="exit"
-              variants={variants}
+            <m.div
               key={view}
+              transition={{
+                type: "spring",
+                bounce:
+                  BOUNCE_VARIANTS[variantKey as keyof typeof BOUNCE_VARIANTS],
+              }}
+              initial={{
+                scale: 0.8,
+                opacity: 0,
+                filter: "blur(5px)",
+                origin: 0.5,
+              }}
+              animate={{
+                scale: 1,
+                opacity: 1,
+                filter: "blur(0px)",
+                origin: 0.5,
+                transition: {
+                  delay: 0.1,
+                },
+              }}
             >
               <DynamicIslandContent view={view} />
-            </motion.div>
-          </AnimatePresence>
+            </m.div>
+          </m.div>
+          <div className="pointer-events-none absolute top-0 left-1/2 flex h-[200px] w-[300px] -translate-x-1/2 items-start justify-center">
+            <AnimatePresence
+              mode="popLayout"
+              custom={
+                ANIMATION_VARIANTS[
+                  variantKey as keyof typeof ANIMATION_VARIANTS
+                ]
+              }
+            >
+              <m.div
+                initial={{ opacity: 0 }}
+                exit="exit"
+                variants={variants}
+                key={view}
+              >
+                <DynamicIslandContent view={view} />
+              </m.div>
+            </AnimatePresence>
+          </div>
+          <DynamicIslandControls view={view} onViewSwitch={switchView} />
         </div>
-        <DynamicIslandControls view={view} onViewSwitch={switchView} />
       </div>
-    </div>
+    </LazyMotion>
   )
 }

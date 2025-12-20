@@ -3,12 +3,15 @@
 import { useSound } from "@/hooks/use-sound"
 import { cn } from "@/lib/utils"
 import {
-  motion,
+  LazyMotion,
   useMotionValue,
   useTransform,
   useWillChange,
 } from "motion/react"
+import * as m from "motion/react-m"
 import { useEffect, useRef, useState } from "react"
+
+const domMax = () => import("@/components/dom-max").then((mod) => mod.default)
 
 const MIN = -90
 const MAX = 90
@@ -145,49 +148,51 @@ export function FractionalSlider() {
   }, [x, initialX, sliderWidth])
 
   return (
-    <div
-      ref={containerRef}
-      className="relative size-full cursor-ew-resize overflow-hidden select-none"
-      style={{ width: `${CONTAINER_WIDTH}px` }}
-    >
-      <motion.div
-        role="slider"
-        aria-label="Fractional slider"
-        aria-orientation="horizontal"
-        aria-valuemin={MIN}
-        aria-valuemax={MAX}
-        aria-valuenow={currentValue}
-        aria-valuetext={`${currentValue} degrees`}
-        className="relative h-full"
-        style={{
-          width: `${sliderWidth}px`,
-          willChange,
-          x,
-        }}
-        drag="x"
-        dragConstraints={{
-          left: -(sliderWidth - CONTAINER_WIDTH / 2),
-          right: CONTAINER_WIDTH / 2,
-        }}
-        dragElastic={0.05}
-        dragTransition={{
-          power: 0.1,
-          timeConstant: 150,
-        }}
+    <LazyMotion strict features={domMax}>
+      <div
+        ref={containerRef}
+        className="relative size-full cursor-ew-resize overflow-hidden select-none"
+        style={{ width: `${CONTAINER_WIDTH}px` }}
       >
-        <Ticks min={MIN} max={MAX} currentValue={currentValue} />
-      </motion.div>
-      <div className="pointer-events-none absolute top-0 left-0 z-10 h-full w-24 bg-gradient-to-r from-white to-transparent dark:from-[#0B0B09]" />
-      <div className="pointer-events-none absolute top-0 right-0 z-10 h-full w-24 bg-gradient-to-l from-white to-transparent dark:from-[#0B0B09]" />
-      <Indicator />
-      <p
-        className={cn(
-          "absolute bottom-24 left-1/2 -translate-x-1/2 text-xs text-gray-500 transition-opacity duration-300 dark:text-gray-400",
-          currentValue !== 0 ? "opacity-0" : "opacity-100",
-        )}
-      >
-        Scroll or drag
-      </p>
-    </div>
+        <m.div
+          role="slider"
+          aria-label="Fractional slider"
+          aria-orientation="horizontal"
+          aria-valuemin={MIN}
+          aria-valuemax={MAX}
+          aria-valuenow={currentValue}
+          aria-valuetext={`${currentValue} degrees`}
+          className="relative h-full"
+          style={{
+            width: `${sliderWidth}px`,
+            willChange,
+            x,
+          }}
+          drag="x"
+          dragConstraints={{
+            left: -(sliderWidth - CONTAINER_WIDTH / 2),
+            right: CONTAINER_WIDTH / 2,
+          }}
+          dragElastic={0.05}
+          dragTransition={{
+            power: 0.1,
+            timeConstant: 150,
+          }}
+        >
+          <Ticks min={MIN} max={MAX} currentValue={currentValue} />
+        </m.div>
+        <div className="pointer-events-none absolute top-0 left-0 z-10 h-full w-24 bg-linear-to-r from-white to-transparent dark:from-[#0B0B09]" />
+        <div className="pointer-events-none absolute top-0 right-0 z-10 h-full w-24 bg-linear-to-l from-white to-transparent dark:from-[#0B0B09]" />
+        <Indicator />
+        <p
+          className={cn(
+            "absolute bottom-24 left-1/2 -translate-x-1/2 text-xs text-gray-500 transition-opacity duration-300 dark:text-gray-400",
+            currentValue !== 0 ? "opacity-0" : "opacity-100",
+          )}
+        >
+          Scroll or drag
+        </p>
+      </div>
+    </LazyMotion>
   )
 }
