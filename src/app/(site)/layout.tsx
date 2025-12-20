@@ -65,9 +65,10 @@ export const viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" dir="ltr" suppressHydrationWarning>
       <body
         className={`${geistMono.variable} ${heldaneText.variable} font-system root relative antialiased`}
+        suppressHydrationWarning
       >
         <Providers>
           <ProgressiveBlur

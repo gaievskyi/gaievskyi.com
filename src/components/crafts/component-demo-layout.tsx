@@ -41,7 +41,7 @@ export function ComponentDemoLayout({
 }: ComponentDemoLayoutProps) {
   return (
     <article className="container flex h-svh w-full flex-col justify-center px-4 pt-12 sm:px-0">
-      <Flex gap="sm" align="center" justify="between">
+      <Flex gap="xl" align="center" justify="between">
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
@@ -63,7 +63,7 @@ export function ComponentDemoLayout({
         </Breadcrumb>
         <time
           dateTime={date}
-          className="text-xs text-muted-foreground sm:text-sm"
+          className="text-xs text-nowrap text-muted-foreground sm:text-sm"
         >
           {date}
         </time>

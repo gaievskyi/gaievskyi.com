@@ -18,7 +18,7 @@ const expandVariants = {
     visible: {
       transition: {
         staggerChildren: 0.08,
-        delayChildren: 0.3,
+        delayChildren: 0.56,
       },
     },
   },

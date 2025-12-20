@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function GlobalNotFound() {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" dir="ltr" suppressHydrationWarning>
       <body
         className={`${heldaneText.variable} font-system root relative antialiased container mx-auto grid h-svh place-content-center gap-8`}
         suppressHydrationWarning

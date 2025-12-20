@@ -28,7 +28,7 @@ export default async function ProjectPage({
       direction="col"
       align="center"
       gap="lg"
-      className="container mx-auto -mt-14 grid h-svh w-full max-w-3xl place-content-center px-6 sm:px-0"
+      className="container mx-auto grid h-svh w-full max-w-3xl place-content-center px-6 sm:px-0"
     >
       <Suspense>
         <ProjectContent projectPromise={projectPromise} />

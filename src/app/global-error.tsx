@@ -39,10 +39,10 @@ export default function GlobalErrorPage({
   }, [error])
 
   return (
-    <html lang="en">
+    <html lang="en" dir="ltr" suppressHydrationWarning>
       <body
-        suppressHydrationWarning
         className={`${heldaneText.variable} font-system root relative antialiased container max-w-md mx-auto grid h-svh place-content-center gap-8`}
+        suppressHydrationWarning
       >
         <Providers>
           <motion.div

@@ -1,5 +1,11 @@
-import { Geist_Mono } from "next/font/google"
+import { Geist, Geist_Mono } from "next/font/google"
 import localFont from "next/font/local"
+
+export const geist = Geist({
+  variable: "--font-geist",
+  subsets: ["latin"],
+  display: "swap",
+})
 
 export const geistMono = Geist_Mono({
   variable: "--font-geist-mono",

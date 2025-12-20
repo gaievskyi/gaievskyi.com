@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/breadcrumb"
 import { HapticLink } from "@/components/ui/haptic-link"
 import { Icon } from "@/components/ui/icon"
-import { Flex } from "@/components/ui/layout/flex"
 import { Heading } from "@/components/ui/typography/heading"
 import { use } from "react"
 import type { Project } from "../../../../../../payload-types"
@@ -20,8 +19,8 @@ const expandVariants = {
   container: {
     visible: {
       transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.3,
+        staggerChildren: 0.12,
+        delayChildren: 0.2,
       },
     },
   },
@@ -55,38 +54,36 @@ export function ProjectContent({ projectPromise }: ProjectContentProps) {
   return (
     <AnimatedGroup
       variants={expandVariants}
-      className="flex w-full flex-col justify-between mb-4"
+      className="flex w-full items-center justify-between mb-4"
     >
-      <Flex gap="sm" align="center" justify="between">
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink render={<HapticLink href="/" />}>
-                <Icon name="sprite:arrow-back" className="size-4.5" /> Index
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>Projects</BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>
-                <Heading weight="medium" className="tracking-tight">
-                  {project.title}
-                </Heading>
-              </BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
-        <time
-          dateTime={project.createdAt}
-          className="text-xs text-muted-foreground sm:text-sm"
-        >
-          {Intl.DateTimeFormat(undefined, {
-            month: "long",
-            year: "numeric",
-          }).format(new Date(project.createdAt))}
-        </time>
-      </Flex>
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink render={<HapticLink href="/" />}>
+              <Icon name="sprite:arrow-back" className="size-4.5" /> Index
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>Projects</BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>
+              <Heading weight="medium" className="tracking-tight">
+                {project.title}
+              </Heading>
+            </BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+      <time
+        dateTime={project.createdAt}
+        className="text-xs text-muted-foreground sm:text-sm"
+      >
+        {Intl.DateTimeFormat(undefined, {
+          month: "long",
+          year: "numeric",
+        }).format(new Date(project.createdAt))}
+      </time>
     </AnimatedGroup>
   )
 }

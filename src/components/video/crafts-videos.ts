@@ -1,5 +1,3 @@
-// TODO: refactor with dynamic imports
-
 import dynamicIslandVideo from "@/videos/dynamic-island.mp4"
 import fractionalSliderVideo from "@/videos/fractional-slider.mp4"
 import iosSliderVideo from "@/videos/ios-slider.mp4"
