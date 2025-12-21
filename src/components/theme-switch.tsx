@@ -1,9 +1,8 @@
 "use client"
 
+import { ClientOnly } from "@/components/client-only"
 import { Button } from "@/components/ui/button"
 import { Icon } from "@/components/ui/icon"
-import { Spinner } from "@/components/ui/spinner"
-import { useIsMountedState } from "@/hooks/use-is-mounted-state"
 import { useShortcut } from "@/hooks/use-shortcut"
 import { useTheme } from "next-themes"
 
@@ -29,7 +28,6 @@ const getNextTheme = (currentTheme: string | undefined) => {
 
 export function ThemeSwitch() {
   const { theme, setTheme, resolvedTheme } = useTheme()
-  const isMounted = useIsMountedState()
 
   useShortcut("cmd+j", () => {
     setTheme(getNextTheme(theme))
@@ -40,19 +38,16 @@ export function ThemeSwitch() {
   }
 
   return (
-    <Button
-      type="button"
-      variant="outline"
-      size="icon-sm"
-      onClick={onToggle}
-      aria-label="Toggle theme"
-      disabled={!isMounted}
-    >
-      {isMounted ? (
-        getThemeIcon(resolvedTheme)
-      ) : (
-        <Spinner size="sm" className="bg-foreground" />
-      )}
-    </Button>
+    <ClientOnly>
+      <Button
+        type="button"
+        variant="outline"
+        size="icon-sm"
+        onClick={onToggle}
+        aria-label="Toggle theme"
+      >
+        {getThemeIcon(resolvedTheme)}
+      </Button>
+    </ClientOnly>
   )
 }

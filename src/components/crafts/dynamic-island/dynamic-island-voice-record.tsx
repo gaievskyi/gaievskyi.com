@@ -7,18 +7,17 @@ const formatTime = (totalSeconds: number) => {
   return `${minutes.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`
 }
 
+const initialHeights = [
+  4, 8, 5, 4, 30, 8, 30, 14, 30, 50, 10, 6, 30, 6, 4, 8, 5, 4, 8, 4,
+]
+
 export function DynamicIslandVoiceRecord() {
-  const [waveformHeights, setWaveformHeights] = useState<number[]>([])
+  const [waveformHeights, setWaveformHeights] =
+    useState<number[]>(initialHeights)
   const [seconds, setSeconds] = useState(75)
   const [grayDotOffset, setGrayDotOffset] = useState(0)
 
   useEffect(() => {
-    const initialHeights = [
-      4, 8, 5, 4, 30, 8, 30, 14, 30, 50, 10, 6, 30, 6, 4, 8, 5, 4, 8, 4,
-    ]
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setWaveformHeights(initialHeights)
-
     // Animate marquee effect for gray dots
     const marqueeInterval = setInterval(() => {
       setGrayDotOffset((prev) => prev + 2)
@@ -70,13 +69,11 @@ export function DynamicIslandVoiceRecord() {
 
   return (
     <div className="flex w-[284px] items-center justify-between py-3 pr-3 pl-4">
-      {/* Audio Waveform Visualization */}
       <div className="flex h-5 items-center gap-0.5">
-        {/* Fixed orange bars on the left */}
         {waveformHeights.slice(0, 12).map((height, index) => (
           <m.div
             key={`orange-${index}`}
-            className="w-0.5 rounded-full bg-gradient-to-t from-red-500 via-red-400 to-orange-400"
+            className="w-0.5 rounded-full bg-linear-to-t from-red-500 via-red-400 to-orange-400"
             animate={{ height }}
             transition={{
               duration: 0.1,
@@ -85,20 +82,18 @@ export function DynamicIslandVoiceRecord() {
             style={{ minHeight: 5 }}
           />
         ))}
-
-        {/* Seamless scrolling gray dots on the right */}
         <div className="flex w-[45px] items-center gap-0.5 overflow-hidden">
           <div
             className="flex items-center gap-0.5"
             style={{
-              transform: `translateX(-${grayDotOffset % (baseDotPattern.length * 6)}px)`, // Reset seamlessly based on pattern length
-              transition: "none", // Disable transition for smooth continuous scroll
+              transform: `translateX(-${grayDotOffset % (baseDotPattern.length * 6)}px)`,
+              transition: "none",
             }}
           >
             {grayDotsPattern.map((height, index) => (
               <div
                 key={`gray-${index}`}
-                className="w-1 flex-shrink-0 rounded-full bg-gray-500/30"
+                className="w-1 shrink-0 rounded-full bg-gray-500/30"
                 style={{
                   height: `${height}px`,
                   minHeight: 2,
@@ -108,14 +103,10 @@ export function DynamicIslandVoiceRecord() {
           </div>
         </div>
       </div>
-
       <div className="flex items-center gap-2.5">
-        {/* Timer Display - matching iOS style exactly */}
         <div className="font-system text-lg font-medium tracking-wide text-[#fd6a68] tabular-nums">
           {formatTime(seconds)}
         </div>
-
-        {/* Stop Button - exact iOS style with white border, black bg, red square */}
         <button
           aria-label="Stop recording"
           className="flex size-10 items-center justify-center rounded-full border-2 border-white bg-black transition-colors hover:bg-gray-900"

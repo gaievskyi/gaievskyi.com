@@ -84,7 +84,6 @@ function Band({ maxSpeed = 50, minSpeed = 10 }: BandProps) {
   })
 
   const [dragged, drag] = useState<false | THREE.Vector3>(false)
-  const [hovered, hover] = useState(false)
 
   const lineWidth = size.width < 768 ? 1 : 0.5
 
@@ -116,15 +115,6 @@ function Band({ maxSpeed = 50, minSpeed = 10 }: BandProps) {
     [0, 0, 0],
     [0, 1.45, 0],
   ])
-
-  useEffect(() => {
-    if (hovered) {
-      document.body.style.cursor = dragged ? "grabbing" : "grab"
-      return () => {
-        document.body.style.cursor = "auto"
-      }
-    }
-  }, [hovered, dragged])
 
   useFrame((state, delta) => {
     if (dragged && typeof dragged !== "boolean") {
@@ -220,14 +210,32 @@ function Band({ maxSpeed = 50, minSpeed = 10 }: BandProps) {
           <group
             scale={2.25}
             position={[0, -1.2, -0.05]}
-            onPointerOver={() => hover(true)}
-            onPointerOut={() => hover(false)}
-            onPointerUp={(e: any) => {
-              e.target.releasePointerCapture(e.pointerId)
+            onPointerOver={() => {
+              document.body.style.cursor = "grab"
+            }}
+            onPointerOut={() => {
+              document.body.style.cursor = "auto"
+            }}
+            onPointerUp={(e) => {
+              if (!e.target) return
+              if (
+                "releasePointerCapture" in e.target &&
+                typeof e.target.releasePointerCapture === "function"
+              ) {
+                e.target.releasePointerCapture(e.pointerId)
+              }
+              document.body.style.cursor = "auto"
               drag(false)
             }}
-            onPointerDown={(e: any) => {
-              e.target.setPointerCapture(e.pointerId)
+            onPointerDown={(e) => {
+              if (!e.target) return
+              if (
+                "setPointerCapture" in e.target &&
+                typeof e.target.setPointerCapture === "function"
+              ) {
+                e.target.setPointerCapture(e.pointerId)
+              }
+              document.body.style.cursor = "grabbing"
               drag(
                 new THREE.Vector3()
                   .copy(e.point)

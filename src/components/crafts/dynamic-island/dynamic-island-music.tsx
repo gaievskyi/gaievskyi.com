@@ -130,9 +130,7 @@ export function DynamicIslandMusic() {
 
   return (
     <div className="flex w-[320px] flex-col gap-3 py-5 pr-6 pl-5">
-      {/* Top section with album art and song info */}
       <div className="flex items-center gap-3">
-        {/* Album Art */}
         <div
           className={cn(
             "size-12 shrink-0 overflow-hidden rounded-lg bg-linear-to-br from-orange-400 via-pink-500 to-purple-600 transition-all duration-300 ease-out",
@@ -148,7 +146,6 @@ export function DynamicIslandMusic() {
           />
         </div>
 
-        {/* Song Info */}
         <div className="flex min-w-0 flex-col font-medium">
           <div
             className={cn(
@@ -167,8 +164,6 @@ export function DynamicIslandMusic() {
           </div>
         </div>
       </div>
-
-      {/* Progress bar with time */}
       <div className="flex items-center gap-2">
         <span className="font-system text-xs font-medium text-[#434542] tabular-nums">
           {formatTime(currentTime)}
@@ -191,12 +186,8 @@ export function DynamicIslandMusic() {
           -{formatTime(currentTrack.duration - currentTime)}
         </span>
       </div>
-
-      {/* Media Controls */}
       <div className="ml-5 flex items-center justify-between">
-        {/* Main Media Controls - Centered */}
         <div className="flex flex-1 items-center justify-center gap-6">
-          {/* Previous Track */}
           <button
             className="rotate-180 transition-transform duration-150 ease-out active:scale-90"
             onClick={handlePreviousTrack}
@@ -207,7 +198,6 @@ export function DynamicIslandMusic() {
             />
           </button>
 
-          {/* Play/Pause */}
           <button onClick={togglePlayPause}>
             {isPlaying ? (
               <Icon name="sprite:pause" className="text-2xl text-white" />
@@ -216,7 +206,6 @@ export function DynamicIslandMusic() {
             )}
           </button>
 
-          {/* Next Track */}
           <button
             onClick={handleNextTrack}
             className="transition-transform duration-150 ease-out active:scale-90"
@@ -225,7 +214,6 @@ export function DynamicIslandMusic() {
           </button>
         </div>
 
-        {/* AirPlay Icon - Right Aligned */}
         <button className="transition-transform duration-150 ease-out active:scale-90">
           <Icon name="sprite:podcast" className="text-2xl text-white" />
         </button>

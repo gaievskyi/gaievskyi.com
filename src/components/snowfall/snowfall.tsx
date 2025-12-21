@@ -1,6 +1,5 @@
 "use client"
 
-import { useIsMountedState } from "@/hooks/use-is-mounted-state"
 import { debounce } from "@/lib/debounce"
 import { useTheme } from "next-themes"
 import { useEffect, useEffectEvent, useRef } from "react"
@@ -39,7 +38,6 @@ export function Snowfall({ snowflakeCount = 100 }: SnowfallProps = {}) {
   const snowflakesCanvasRef = useRef<HTMLCanvasElement>(null)
   const heapCanvasRef = useRef<HTMLCanvasElement>(null)
   const { resolvedTheme } = useTheme()
-  const isMounted = useIsMountedState()
 
   const onAnimate = useEffectEvent(
     (
@@ -144,8 +142,6 @@ export function Snowfall({ snowflakeCount = 100 }: SnowfallProps = {}) {
   )
 
   useEffect(() => {
-    if (!isMounted) return
-
     const snowflakesCanvas = snowflakesCanvasRef.current
     const heapCanvas = heapCanvasRef.current
     if (!snowflakesCanvas || !heapCanvas) return
@@ -213,9 +209,7 @@ export function Snowfall({ snowflakeCount = 100 }: SnowfallProps = {}) {
       cancelAnimationFrame(animationFrameId)
       pathCache.clear()
     }
-  }, [snowflakeCount, isMounted])
-
-  if (!isMounted) return null
+  }, [resolvedTheme, snowflakeCount])
 
   return (
     <>

@@ -4,7 +4,6 @@ import Image from "next/image"
 export function DynamicIslandCall() {
   return (
     <div className="font-system flex w-[300px] items-center justify-between py-3 pr-3 pl-4">
-      {/* Profile Picture */}
       <div className="flex items-center gap-3">
         <div className="size-10 shrink-0 overflow-hidden rounded-full bg-gray-200">
           <Image
@@ -19,7 +18,6 @@ export function DynamicIslandCall() {
           />
         </div>
 
-        {/* Contact Info */}
         <div className="flex flex-col">
           <div className="text-xs font-normal text-gray-400">mobile</div>
           <div className="text-base leading-tight font-medium text-white">
@@ -28,17 +26,13 @@ export function DynamicIslandCall() {
         </div>
       </div>
 
-      {/* Call Action Buttons */}
       <div className="flex items-center gap-3">
-        {/* Decline Button - Red */}
         <button
           aria-label="Decline call"
           className="flex size-10 items-center justify-center rounded-full bg-[#ff453a] transition-colors hover:bg-[#ff3b30]"
         >
           <Icon name="sprite:phone" className="size-5 rotate-135 text-white" />
         </button>
-
-        {/* Accept Button - Green */}
         <button
           aria-label="Accept call"
           className="flex size-10 items-center justify-center rounded-full bg-[#30d158] transition-colors hover:bg-[#28c946]"
