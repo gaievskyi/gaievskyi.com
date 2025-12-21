@@ -1,11 +1,7 @@
 "use client"
 
-import {
-  motion,
-  useMotionValue,
-  useSpring,
-  type SpringOptions,
-} from "motion/react"
+import { useMotionValue, useSpring, type SpringOptions } from "motion/react"
+import * as m from "motion/react-m"
 import { useEffect, useRef, useState } from "react"
 
 const SPRING_CONFIG = { stiffness: 26.7, damping: 4.1, mass: 0.2 }
@@ -25,7 +21,7 @@ export function Magnetic({
   actionArea = "self",
   springOptions = SPRING_CONFIG,
 }: MagneticProps) {
-  const [isHovered, setIsHovered] = useState(false)
+  const [isHovered, setIsHovered] = useState(actionArea === "global")
   const ref = useRef<HTMLDivElement>(null)
 
   const x = useMotionValue(0)
@@ -77,8 +73,6 @@ export function Magnetic({
         parent.removeEventListener("mouseenter", handleParentEnter)
         parent.removeEventListener("mouseleave", handleParentLeave)
       }
-    } else if (actionArea === "global") {
-      setIsHovered(true)
     }
   }, [actionArea])
 
@@ -97,7 +91,7 @@ export function Magnetic({
   }
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       onMouseEnter={actionArea === "self" ? handleMouseEnter : undefined}
       onMouseLeave={actionArea === "self" ? handleMouseLeave : undefined}
@@ -107,6 +101,6 @@ export function Magnetic({
       }}
     >
       {children}
-    </motion.div>
+    </m.div>
   )
 }

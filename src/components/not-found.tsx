@@ -1,9 +1,9 @@
 import FuzzyText from "@/components/fuzzy-text"
-import * as motion from "motion/react-client"
+import * as m from "motion/react-m"
 
 export function NotFound() {
   return (
-    <motion.div
+    <m.div
       initial={{
         opacity: 0,
         filter: "blur(5px)",
@@ -16,6 +16,6 @@ export function NotFound() {
       <FuzzyText fontSize={85} fontFamily="Heldane" className="ml-2">
         not found
       </FuzzyText>
-    </motion.div>
+    </m.div>
   )
 }

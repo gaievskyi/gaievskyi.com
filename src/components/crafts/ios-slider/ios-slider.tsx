@@ -1,7 +1,8 @@
 "use client"
 
-import { useState, useRef } from "react"
-import { motion, useMotionValue, useTransform, animate } from "motion/react"
+import { animate, useMotionValue, useTransform } from "motion/react"
+import * as m from "motion/react-m"
+import { useRef, useState } from "react"
 
 const MIN_VALUE = 0
 const MAX_VALUE = 100
@@ -18,7 +19,7 @@ function ProgressBar({
   const progressHeight = `${((value - min) / (max - min)) * 100}%`
 
   return (
-    <motion.div
+    <m.div
       className="pointer-events-none absolute right-0 bottom-0 left-0 origin-bottom bg-white"
       style={{ height: progressHeight }}
       role="progressbar"
@@ -154,10 +155,11 @@ export function IosSlider({
   }
 
   const transformOrigin =
+    // eslint-disable-next-line react-hooks/refs
     lastExtremeRef.current === "min" ? "50% 0%" : "50% 100%"
 
   return (
-    <motion.div
+    <m.div
       ref={containerRef}
       className="relative flex h-56 w-22 touch-none items-end justify-center overflow-hidden rounded-full bg-ios-slider-bg shadow-[0_0_20px_rgba(255,255,255,0.05),inset_0_2px_0_rgba(255,255,255,0.05)] outline-1 outline-gray-200 backdrop-blur-sm select-none focus:ring-2 focus:ring-blue-500 dark:outline-none"
       style={{
@@ -195,6 +197,6 @@ export function IosSlider({
         aria-hidden="true"
         {...props}
       />
-    </motion.div>
+    </m.div>
   )
 }

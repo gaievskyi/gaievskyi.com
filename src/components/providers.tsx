@@ -1,6 +1,11 @@
+"use client"
+
 import { TooltipProvider } from "@/components/ui/tooltip"
+import { LazyMotion } from "motion/react"
 import { ThemeProvider } from "next-themes"
 import type { PropsWithChildren } from "react"
+
+const domAnimation = () => import("./dom-animation").then((mod) => mod.default)
 
 export function Providers({ children }: PropsWithChildren) {
   return (
@@ -10,7 +15,9 @@ export function Providers({ children }: PropsWithChildren) {
       enableSystem
       disableTransitionOnChange
     >
-      <TooltipProvider>{children}</TooltipProvider>
+      <LazyMotion strict features={domAnimation}>
+        <TooltipProvider>{children}</TooltipProvider>
+      </LazyMotion>
     </ThemeProvider>
   )
 }

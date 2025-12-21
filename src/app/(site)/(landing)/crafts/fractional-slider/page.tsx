@@ -1,5 +1,5 @@
 import { ComponentDemoLayout } from "@/components/crafts/component-demo-layout"
-import { FractionalSlider } from "@/components/crafts/fractional-slider/fractional-slider"
+import { FractionalSlider } from "@/components/crafts/fractional-slider"
 import { craftsMap } from "@/components/video/crafts-videos"
 import type { Metadata } from "next"
 

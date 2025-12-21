@@ -1,17 +1,11 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import {
-  type HTMLMotionProps,
-  LazyMotion,
-  useScroll,
-  useTransform,
-} from "motion/react"
+import { type HTMLMotionProps, useScroll, useTransform } from "motion/react"
 import * as m from "motion/react-m"
 import { useMemo } from "react"
 
-const features = () =>
-  import("./lazy-motion-animations").then((mod) => mod.default)
+
 
 export const GRADIENT_ANGLES = {
   top: 0,
@@ -76,29 +70,27 @@ export function ProgressiveBlur({
   }, [direction, blurLayers, blurIntensity])
 
   return (
-    <LazyMotion strict features={features}>
-      <m.div
-        className={cn(
-          "fixed left-0 right-0 z-50 pointer-events-none",
-          position === "bottom" ? "bottom-0" : "top-0",
-          className,
-        )}
-        style={{ opacity }}
-      >
-        {blurConfig.map((config, index) => (
-          <m.div
-            key={index}
-            className="pointer-events-none absolute inset-0 rounded-[inherit]"
-            style={{
-              maskImage: config.gradient,
-              WebkitMaskImage: config.gradient,
-              backdropFilter: config.blur,
-              WebkitBackdropFilter: config.blur,
-            }}
-            {...props}
-          />
-        ))}
-      </m.div>
-    </LazyMotion>
+    <m.div
+      className={cn(
+        "fixed left-0 right-0 z-50 pointer-events-none",
+        position === "bottom" ? "bottom-0" : "top-0",
+        className,
+      )}
+      style={{ opacity }}
+    >
+      {blurConfig.map((config, index) => (
+        <m.div
+          key={index}
+          className="pointer-events-none absolute inset-0 rounded-[inherit]"
+          style={{
+            maskImage: config.gradient,
+            WebkitMaskImage: config.gradient,
+            backdropFilter: config.blur,
+            WebkitBackdropFilter: config.blur,
+          }}
+          {...props}
+        />
+      ))}
+    </m.div>
   )
 }

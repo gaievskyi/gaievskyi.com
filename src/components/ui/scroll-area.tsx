@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import { ScrollArea as BaseScrollArea } from "@base-ui-components/react/scroll-area"
+import { ScrollArea as BaseScrollArea } from "@base-ui/react/scroll-area"
 import type { ComponentProps } from "react"
 
 function ScrollArea({

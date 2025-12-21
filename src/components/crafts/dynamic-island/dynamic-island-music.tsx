@@ -129,7 +129,7 @@ export function DynamicIslandMusic() {
   }
 
   return (
-    <div className="flex w-[330px] flex-col gap-3 py-5 pr-6 pl-5">
+    <div className="flex w-[320px] flex-col gap-3 py-5 pr-6 pl-5">
       {/* Top section with album art and song info */}
       <div className="flex items-center gap-3">
         {/* Album Art */}

@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import { Separator as BaseSeparator } from "@base-ui-components/react/separator"
+import { Separator as BaseSeparator } from "@base-ui/react/separator"
 import { cva } from "class-variance-authority"
 import type { ComponentProps } from "react"
 

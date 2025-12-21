@@ -1,6 +1,7 @@
 import { Icon } from "@/components/ui/icon"
 import { useTimeout } from "@/hooks/use-timeout"
-import { AnimatePresence, motion } from "motion/react"
+import { AnimatePresence } from "motion/react"
+import * as m from "motion/react-m"
 import { useState } from "react"
 
 export function DynamicIslandRing() {
@@ -16,7 +17,7 @@ export function DynamicIslandRing() {
   )
 
   return (
-    <motion.div
+    <m.div
       initial={false}
       className="relative flex h-9 items-center justify-between px-2.5"
       animate={{ width: isSilent ? 168 : 148 }}
@@ -24,7 +25,7 @@ export function DynamicIslandRing() {
     >
       <AnimatePresence>
         {isSilent ? (
-          <motion.div
+          <m.div
             initial={{ width: 0, opacity: 0, filter: "blur(4px)" }}
             animate={{
               width: 40,
@@ -37,7 +38,7 @@ export function DynamicIslandRing() {
           />
         ) : null}
       </AnimatePresence>
-      <motion.div
+      <m.div
         initial={false}
         className="relative h-[12.75px] w-[11.25px]"
         animate={{
@@ -53,7 +54,7 @@ export function DynamicIslandRing() {
         />
         <div className="absolute inset-0">
           <div className="h-5 translate-x-[5.25px] translate-y-[-5px] rotate-[-40deg] overflow-hidden">
-            <motion.div
+            <m.div
               animate={{ height: isSilent ? 16 : 0 }}
               transition={{
                 ease: "easeInOut",
@@ -65,10 +66,10 @@ export function DynamicIslandRing() {
               <div className="flex h-full w-[3px] items-center justify-center rounded-full bg-[#FD4F30]">
                 <div className="h-full w-[0.75px] rounded-full bg-white" />
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
-      </motion.div>
+      </m.div>
       <div className="font-system ml-auto flex items-center">
         {isSilent ? (
           <span className="font-system text-xs font-medium text-[#FD4F30]">
@@ -80,6 +81,6 @@ export function DynamicIslandRing() {
           </span>
         )}
       </div>
-    </motion.div>
+    </m.div>
   )
 }

@@ -14,11 +14,10 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
-import { HapticLink } from '@/components/ui/haptic-link'
+import { HapticLink } from "@/components/ui/haptic-link"
 import { Icon } from "@/components/ui/icon"
 import { Flex } from "@/components/ui/layout/flex"
-import * as motion from "motion/react-client"
-import Link from "next/link"
+import * as m from "motion/react-m"
 import { useEffect, useState } from "react"
 
 type ErrorPageProps = {
@@ -35,7 +34,7 @@ export default function ErrorPage({ error, reset }: ErrorPageProps) {
 
   return (
     <main className="container max-w-md mx-auto grid h-svh place-content-center gap-8">
-      <motion.div
+      <m.div
         initial={{
           opacity: 0,
           filter: "blur(5px)",
@@ -48,7 +47,7 @@ export default function ErrorPage({ error, reset }: ErrorPageProps) {
           500
         </FuzzyText>
         <FuzzyText fontSize={200}>Error</FuzzyText>
-      </motion.div>
+      </m.div>
       <Flex
         direction="col"
         gap="lg"

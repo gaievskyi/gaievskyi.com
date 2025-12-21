@@ -1,7 +1,9 @@
 "use client"
 
-import { useEffect, useRef, useState, useMemo } from "react"
-import { motion, AnimatePresence, useTransform, useSpring } from "motion/react"
+import { cn } from "@/lib/utils"
+import { AnimatePresence, useSpring, useTransform } from "motion/react"
+import * as m from "motion/react-m"
+import { useEffect, useMemo, useRef, useState } from "react"
 import {
   CENTER_RADIUS,
   getAngleDifference,
@@ -12,7 +14,6 @@ import {
   normalizeAngle,
   RADIUS,
 } from "./math"
-import { cn } from "@/lib/utils"
 import { RadialMenuContext, useRadialMenu } from "./radial-menu-context"
 
 export type RadialMenuItem = {
@@ -115,6 +116,7 @@ function RadialMenuActiveIndicator() {
       ringAngle.set(0)
       prevActiveIndex.current = activeIndex
       isInitialSelection.current = true
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setShouldAnimate(false)
       return
     }
@@ -168,7 +170,7 @@ function RadialMenuActiveIndicator() {
   }
 
   return (
-    <motion.path
+    <m.path
       className="fill-none stroke-gray-300 stroke-8 dark:stroke-[#4a4a4a]"
       d={pathTransform}
     />
@@ -229,7 +231,7 @@ function RadialMenuOverlay({ children }: { children: React.ReactNode }) {
   return (
     <AnimatePresence>
       {visible && (
-        <motion.div
+        <m.div
           ref={menuRef}
           exit={{ opacity: 0, scale: 0.9 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
@@ -245,7 +247,7 @@ function RadialMenuOverlay({ children }: { children: React.ReactNode }) {
           onPointerMove={onPointerMoveMenu}
         >
           {children}
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   )
@@ -405,6 +407,7 @@ export function RadialMenu({
   const nearestIndex = useMemo(() => {
     if (!dragging) return -1
 
+    // eslint-disable-next-line react-hooks/refs
     const rect = menuRef.current?.getBoundingClientRect()
     if (!rect) return -1
 
