@@ -1,12 +1,18 @@
-import { useSyncExternalStore, type PropsWithChildren } from "react"
+import {
+  useSyncExternalStore,
+  type PropsWithChildren,
+  type ReactNode,
+} from "react"
 
-const emptySubscribe = () => () => {}
+const noop = () => () => {}
 
-export function ClientOnly({ children }: PropsWithChildren) {
+type ClientOnlyProps = PropsWithChildren & { fallback?: ReactNode }
+
+export function ClientOnly({ children, fallback = null }: ClientOnlyProps) {
   const isServer = useSyncExternalStore(
-    emptySubscribe,
+    noop,
     () => false,
     () => true,
   )
-  return isServer ? null : children
+  return isServer ? fallback : children
 }

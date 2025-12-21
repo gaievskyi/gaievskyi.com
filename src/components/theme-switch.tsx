@@ -3,6 +3,7 @@
 import { ClientOnly } from "@/components/client-only"
 import { Button } from "@/components/ui/button"
 import { Icon } from "@/components/ui/icon"
+import { Spinner } from "@/components/ui/spinner"
 import { useShortcut } from "@/hooks/use-shortcut"
 import { useTheme } from "next-themes"
 
@@ -28,26 +29,27 @@ const getNextTheme = (currentTheme: string | undefined) => {
 
 export function ThemeSwitch() {
   const { theme, setTheme, resolvedTheme } = useTheme()
+  const nextTheme = getNextTheme(theme)
 
   useShortcut("cmd+j", () => {
-    setTheme(getNextTheme(theme))
+    setTheme(nextTheme)
   })
 
-  const onToggle = () => {
-    setTheme(getNextTheme(theme))
+  const toggleTheme = () => {
+    setTheme(nextTheme)
   }
 
   return (
-    <ClientOnly>
-      <Button
-        type="button"
-        variant="outline"
-        size="icon-sm"
-        onClick={onToggle}
-        aria-label="Toggle theme"
-      >
+    <Button
+      type="button"
+      variant="outline"
+      size="icon-sm"
+      onClick={toggleTheme}
+      aria-label="Toggle theme"
+    >
+      <ClientOnly fallback={<Spinner size="sm" className="bg-foreground" />}>
         {getThemeIcon(resolvedTheme)}
-      </Button>
-    </ClientOnly>
+      </ClientOnly>
+    </Button>
   )
 }
