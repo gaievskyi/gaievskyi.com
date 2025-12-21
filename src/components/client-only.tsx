@@ -1,3 +1,5 @@
+"use client"
+
 import {
   useSyncExternalStore,
   type PropsWithChildren,

@@ -2,7 +2,6 @@ import { LetHimCook } from "@/components/console-message"
 import { ScreenSizeIndicator } from "@/components/dev-screen-size-indicator"
 import { ProgressiveBlur } from "@/components/progressive-blur"
 import { Providers } from "@/components/providers"
-import { Snowfall } from "@/components/snowfall/snowfall"
 import { isDevelopment, isProduction } from "@/lib/constants"
 import { geistMono, heldaneText } from "@/lib/fonts"
 import { getServerSideURL } from "@/lib/get-url"
@@ -77,7 +76,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             direction="top"
             className="h-10 md:h-[60px]"
           />
-          <Snowfall />
           {children}
         </Providers>
         <ScreenSizeIndicator enabled={isDevelopment} />
