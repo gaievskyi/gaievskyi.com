@@ -1,4 +1,4 @@
-import { random, wrap } from '@/components/snowfall/utils'
+import { random, wrap } from "@/components/snowfall/utils"
 import { CONFIG } from "./config"
 import type { Dimensions, Particle } from "./types"
 
@@ -27,7 +27,7 @@ export const createParticle = (width: number, height: number): Particle => {
       CONFIG.particle.rotation.max,
     ),
     sinOffset: random(0, Math.PI * 2),
-    complexity: Math.random() < 0.7 ? random(0.3, 1) : 0,
+    complexity: Math.random() < 0.9 ? 1 : 0,
     flutter: random(0.5, 1.5),
     depth,
   }

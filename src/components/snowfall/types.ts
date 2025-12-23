@@ -31,10 +31,8 @@ export interface AnimationState {
 
 export interface CanvasRefs {
   readonly snowflakes: HTMLCanvasElement
-  readonly heap: HTMLCanvasElement
 }
 
 export interface CanvasContexts {
   readonly snowflakes: CanvasRenderingContext2D
-  readonly heap: CanvasRenderingContext2D
 }

@@ -1,14 +1,3 @@
-import type { Dimensions } from "./types"
-
-export const getDocumentHeight = (): number =>
-  Math.max(document.documentElement.scrollHeight, window.innerHeight)
-
-export const getDimensions = (): Dimensions => ({
-  width: window.innerWidth,
-  height: getDocumentHeight(),
-  viewportHeight: window.innerHeight,
-})
-
 export const getComputedStyleValue = (property: string): string =>
   getComputedStyle(document.documentElement).getPropertyValue(property).trim()
 

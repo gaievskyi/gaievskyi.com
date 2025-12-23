@@ -1,10 +1,12 @@
+"use client"
+
 import {
-  type SpritePrepareConfig,
   sprites,
+  type SpritePrepareConfig,
   type SpritesMeta,
 } from "@/../sprite.gen"
 import { cn } from "@/lib/utils"
-import { type ComponentProps } from "react"
+import { useMemo, type ComponentProps } from "react"
 
 export type IconProps = ComponentProps<"svg"> & {
   /** e.g. "sprite:close" */
@@ -41,7 +43,7 @@ export const Icon = ({
   const {
     symbol: { viewBox, width, height },
     href,
-  } = getIconMeta(name)
+  } = useMemo(() => getIconMeta(name), [name])
   const scaleX = width > height
   const scaleY = width < height
 
