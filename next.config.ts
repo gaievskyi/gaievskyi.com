@@ -17,6 +17,7 @@ const nextConfig: NextConfig = {
     },
   },
   experimental: {
+    turbopackFileSystemCacheForBuild: true,
     globalNotFound: true,
     browserDebugInfoInTerminal: !isProduction,
     inlineCss: true,
