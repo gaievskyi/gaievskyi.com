@@ -1,13 +1,14 @@
 import { CrossBackground } from "@/components/cross-background"
 import { About } from "@/components/sections/about"
-import { CraftsVideoGrid } from "@/components/sections/crafts-video-grid"
 import { FooterContent } from "@/components/sections/footer-content"
 import { HeaderContent } from "@/components/sections/header-content"
-import { ProjectsVideoGrid } from "@/components/sections/projects-video-grid"
 import { Publications } from "@/components/sections/publications"
 import { Socials } from "@/components/sections/socials"
+import { Videos } from "@/components/sections/videos"
 import { Snowfall } from "@/components/snowfall/snowfall"
 import { Grid, GridItem } from "@/components/ui/layout/grid"
+import { craftsMap } from "@/components/video/crafts-videos"
+import { videosMap } from "@/components/video/projects-videos"
 import Script from "next/script"
 import { ViewTransition } from "react"
 import type { Person, WithContext } from "schema-dts"
@@ -67,7 +68,12 @@ export default function IndexPage() {
           <Publications />
         </GridItem>
         <GridItem as="section" id="crafts" row={4} outlined="top" padding="md">
-          <CraftsVideoGrid />
+          <Videos
+            title="Crafts"
+            videos={craftsMap}
+            basePath="crafts"
+            itemLabel="craft"
+          />
         </GridItem>
         <GridItem
           as="section"
@@ -76,7 +82,12 @@ export default function IndexPage() {
           outlined="top"
           padding="md"
         >
-          <ProjectsVideoGrid />
+          <Videos
+            title="Projects"
+            videos={videosMap}
+            basePath="projects"
+            itemLabel="project"
+          />
         </GridItem>
         <GridItem
           as="footer"
