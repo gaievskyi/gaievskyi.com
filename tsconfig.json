@@ -33,5 +33,5 @@
     ".next/dev/types/**/*.ts",
     "src/app/(payload)/admin/importMap.js"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "sprite.gen.ts"]
 }

@@ -13,6 +13,9 @@
     "*.gen.ts",
     "node_modules/**",
     ".next/**",
-    "src/app/(payload)/**"
+    "src/app/(payload)/**",
+    ".agents/**",
+    ".cursor/**",
+    "payload-types.ts"
   ]
 }
