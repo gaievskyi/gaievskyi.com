@@ -39,8 +39,6 @@ const Spinner = ({
     return [bgClass, filteredClasses]
   }, [className])
 
-  if (!loading) return null
-
   const defaultProps: useRender.ElementProps<"span"> = {
     className: cn(spinnerVariants({ size, className: filteredClassName })),
     children: Array.from({ length: 8 }).map((_, i) => (
@@ -59,11 +57,14 @@ const Spinner = ({
     )),
   }
 
-  return useRender({
+  const component = useRender({
     defaultTagName: "span",
     render,
     props: mergeProps<"span">(defaultProps, props),
   })
+
+  if (!loading) return null
+  return component
 }
 
 export { Spinner, spinnerVariants }
