@@ -13,8 +13,7 @@ import type { Metadata } from "next"
 const url = getServerSideURL()
 const name = "Daniel Gaievskyi"
 const description =
-  "Someone who loves mixing different approaches, genres and styles to create unique, innovative experiences. I enjoy pushing boundaries and exploring new ways to express myself without limitations."
-const username = "@dgaievskyi"
+  "Design Engineer crafting polished UI components, interactive experiments, and developer tools. Exploring the intersection of design and engineering."
 
 export const metadata: Metadata = {
   title: {
@@ -23,7 +22,7 @@ export const metadata: Metadata = {
   },
   description,
   category: "technology",
-  authors: [{ name: "Daniel Gaievskyi", url }],
+  authors: [{ name, url }],
   creator: name,
   metadataBase: new URL(url),
   openGraph: {
@@ -35,7 +34,7 @@ export const metadata: Metadata = {
         height: 446,
       },
     ],
-    siteName: username,
+    siteName: name,
     type: "website",
     locale: "en_US",
     url,
@@ -43,12 +42,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: name,
-    creator: username,
-  },
-  alternates: {
-    types: {
-      "text/plain": `${url}/llms.txt`,
-    },
+    creator: "@dgaievskyi",
   },
   formatDetection: {
     telephone: false,

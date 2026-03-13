@@ -26,7 +26,7 @@ export const personJsonLd: WithContext<Person> = {
   sameAs: [
     "https://github.com/gaievskyi",
     "https://x.com/dgaievskyi",
-    "https://t.me/designbeng",
+    "https://t.me/cybermysh",
   ],
   jobTitle: "Design Engineer",
   email: "daniel@gaievskyi.com",
