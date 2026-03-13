@@ -20,9 +20,7 @@ export function DynamicIslandCall() {
 
         <div className="flex flex-col">
           <div className="text-xs font-normal text-gray-400">mobile</div>
-          <div className="text-base/tight font-medium text-white">
-            Makaroni
-          </div>
+          <div className="text-base/tight font-medium text-white">Makaroni</div>
         </div>
       </div>
 

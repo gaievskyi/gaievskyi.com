@@ -22,7 +22,11 @@ export function BannerBlock({ className, content, style }: Props) {
         className,
       )}
     >
-      <RichText data={content} enableGutter className="prose-p:leading-normal" />
+      <RichText
+        data={content}
+        enableGutter
+        className="prose-p:leading-normal"
+      />
       <Icon name={iconName} className="mt-5 size-4 shrink-0" />
     </div>
   )
