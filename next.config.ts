@@ -1,5 +1,3 @@
-import "./env/env"
-// ^ validate env
 import { withPayload } from "@payloadcms/next/withPayload"
 import type { NextConfig } from "next"
 import { withNextVideo } from "next-video/process"
