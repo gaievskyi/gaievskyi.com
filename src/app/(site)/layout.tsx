@@ -14,9 +14,13 @@ const url = getServerSideURL()
 const name = "Daniel Gaievskyi"
 const description =
   "Someone who loves mixing different approaches, genres and styles to create unique, innovative experiences. I enjoy pushing boundaries and exploring new ways to express myself without limitations."
+const username = "@dgaievskyi"
 
 export const metadata: Metadata = {
-  title: name,
+  title: {
+    default: name,
+    template: `%s — ${name}`,
+  },
   description,
   category: "technology",
   authors: [{ name: "Daniel Gaievskyi", url }],
@@ -31,18 +35,17 @@ export const metadata: Metadata = {
         height: 446,
       },
     ],
-    siteName: "@dgaievskyi",
+    siteName: username,
     type: "website",
     locale: "en_US",
     url,
   },
   twitter: {
     card: "summary_large_image",
-    title: "@dgaievskyi",
-    creator: "@dgaievskyi",
+    title: name,
+    creator: username,
   },
   alternates: {
-    canonical: url,
     types: {
       "text/plain": `${url}/llms.txt`,
     },

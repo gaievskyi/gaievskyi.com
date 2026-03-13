@@ -9,16 +9,16 @@ const VercelBadgeScene = dynamic(
 
 export const metadata: Metadata = {
   title: "Vercel Badge",
-  description: "Vercel Badge",
+  description:
+    "A 3D interactive Vercel Ship 2024 badge recreation — WebGL-powered with realistic materials and physics using Three.js and React Three Fiber.",
   openGraph: {
-    siteName: "@dgaievskyi",
+    siteName: "Daniel Gaievskyi",
     title: "Vercel Badge",
     type: "website",
-    url: "/crafts/vercel-badge",
     images: [
       {
         url: craftsMap["vercel-badge"].poster + "?time=2.5",
-        alt: "Vercel Badge",
+        alt: "Vercel Badge craft by Daniel Gaievskyi",
         width: 1920,
         height: 1080,
       },
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: craftsMap["vercel-badge"].poster + "?time=2.5",
-        alt: "Vercel Badge",
+        alt: "Vercel Badge craft by Daniel Gaievskyi",
         width: 1920,
         height: 1080,
       },

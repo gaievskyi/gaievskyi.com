@@ -5,16 +5,16 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Family Transactions",
-  description: "Family Transactions",
+  description:
+    "A family expense tracker UI component with animated transaction cards and real-time balance updates — built with React.",
   openGraph: {
-    siteName: "@dgaievskyi",
+    siteName: "Daniel Gaievskyi",
     title: "Family Transactions",
     type: "website",
-    url: "/crafts/family-transactions",
     images: [
       {
         url: craftsMap["family-transactions"].poster + "?time=0",
-        alt: "Family Transactions",
+        alt: "Family Transactions craft by Daniel Gaievskyi",
         width: 1920,
         height: 1080,
       },
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: craftsMap["family-transactions"].poster + "?time=0",
-        alt: "Family Transactions",
+        alt: "Family Transactions craft by Daniel Gaievskyi",
         width: 1920,
         height: 1080,
       },

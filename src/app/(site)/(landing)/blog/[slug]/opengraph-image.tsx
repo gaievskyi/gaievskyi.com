@@ -56,7 +56,7 @@ export default async function Image({
           whiteSpace: "nowrap",
           textOverflow: "ellipsis",
           padding: "55px 32px",
-          fontFamily: "Inter",
+          fontFamily: "SF Pro",
         }}
       >
         {article.title}

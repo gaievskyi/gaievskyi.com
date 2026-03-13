@@ -51,7 +51,10 @@ const getArticleJsonLd = async (slug: string) => {
       name: "Daniel Gaievskyi",
       url: "https://gaievskyi.com",
     },
-    audience: "Developers",
+    audience: {
+      "@type": "Audience",
+      audienceType: "Developers",
+    },
   }
   return ld
 }
@@ -62,14 +65,17 @@ export async function generateMetadata({
   const { slug } = await paramsPromise
   const article = await getArticle(slug)
   return {
-    title: article.meta?.title,
-    description: article.meta?.description,
+    title: article.meta?.title ?? article.title,
+    description: article.meta?.description ?? undefined,
+    alternates: {
+      canonical: `https://gaievskyi.com/blog/${slug}`,
+    },
     openGraph: {
       title: article.title,
-      description: article.meta?.description || undefined,
-      siteName: "@dgaievskyi",
+      description: article.meta?.description ?? undefined,
+      siteName: "Daniel Gaievskyi",
       type: "article",
-      publishedTime: article.publishedAt || undefined,
+      publishedTime: article.publishedAt ?? undefined,
       authors: ["Daniel Gaievskyi"],
     },
   }

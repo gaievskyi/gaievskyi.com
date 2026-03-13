@@ -5,16 +5,16 @@ import { craftsMap } from "@/components/video/crafts-videos"
 
 export const metadata: Metadata = {
   title: "Radial Menu",
-  description: "Radial Menu",
+  description:
+    "An elegant radial context menu built with React and Tailwind CSS — gesture-driven, spring-animated, and fully keyboard accessible.",
   openGraph: {
-    siteName: "@dgaievskyi",
+    siteName: "Daniel Gaievskyi",
     title: "Radial Menu",
     type: "website",
-    url: "/crafts/radial-menu",
     images: [
       {
         url: craftsMap["radial-menu"].poster + "?time=1.2",
-        alt: "Radial Menu",
+        alt: "Radial Menu craft by Daniel Gaievskyi",
         width: 1920,
         height: 1080,
       },
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: craftsMap["radial-menu"].poster + "?time=1.2",
-        alt: "Radial Menu",
+        alt: "Radial Menu craft by Daniel Gaievskyi",
         width: 1920,
         height: 1080,
       },

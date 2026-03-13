@@ -5,16 +5,16 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Fractional Slider",
-  description: "Fractional Slider",
+  description:
+    "An experimental fractional slider component with haptic-style sound effects — drag to explore non-linear value ranges.",
   openGraph: {
-    siteName: "@dgaievskyi",
+    siteName: "Daniel Gaievskyi",
     title: "Fractional Slider",
     type: "website",
-    url: "/crafts/fractional-slider",
     images: [
       {
         url: craftsMap["fractional-slider"].poster + "?time=0",
-        alt: "Fractional Slider",
+        alt: "Fractional Slider craft by Daniel Gaievskyi",
         width: 1920,
         height: 1080,
       },
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: craftsMap["fractional-slider"].poster + "?time=0",
-        alt: "Fractional Slider",
+        alt: "Fractional Slider craft by Daniel Gaievskyi",
         width: 1920,
         height: 1080,
       },

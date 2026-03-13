@@ -128,6 +128,10 @@ async function generateSitemap(): Promise<MetadataRoute.Sitemap> {
         },
       ],
     },
+    {
+      url: url + "/crafts/vercel-call-to-action",
+      lastModified: new Date(),
+    },
   ]
   return [
     {

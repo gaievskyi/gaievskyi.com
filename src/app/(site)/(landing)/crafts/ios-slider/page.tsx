@@ -5,16 +5,16 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "iOS Slider",
-  description: "iOS Slider",
+  description:
+    "A stretchable brightness slider replicating the iOS Control Center interaction — rubber-band physics and smooth spring animations.",
   openGraph: {
-    siteName: "@dgaievskyi",
+    siteName: "Daniel Gaievskyi",
     title: "iOS Slider",
     type: "website",
-    url: "/crafts/ios-slider",
     images: [
       {
         url: craftsMap["ios-slider"].poster + "?time=11",
-        alt: "iOS Slider",
+        alt: "iOS Slider craft by Daniel Gaievskyi",
         width: 1920,
         height: 1080,
       },
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: craftsMap["ios-slider"].poster + "?time=11",
-        alt: "iOS Slider",
+        alt: "iOS Slider craft by Daniel Gaievskyi",
         width: 1920,
         height: 1080,
       },

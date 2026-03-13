@@ -21,7 +21,7 @@ export const personJsonLd: WithContext<Person> = {
   name: "Daniel Gaievskyi",
   image: "https://gaievskyi.com/images/opengraph-image.png",
   description:
-    "Someone who loves mixing different approaches, genres and styles to create unique, innovative experiences. I enjoy pushing boundaries and exploring new ways to express myself without limitations.",
+    "Design Engineer crafting polished UI components, interactive experiments, and developer tools. Exploring the intersection of design and engineering.",
   url: "https://gaievskyi.com",
   sameAs: [
     "https://github.com/gaievskyi",

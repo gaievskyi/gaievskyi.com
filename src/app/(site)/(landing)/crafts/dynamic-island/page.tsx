@@ -6,16 +6,16 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Dynamic Island",
-  description: "Dynamic Island",
+  description:
+    "An Apple Dynamic Island inspired interactive component built in React — smooth physics animations with live activity states.",
   openGraph: {
-    siteName: "@dgaievskyi",
+    siteName: "Daniel Gaievskyi",
     title: "Dynamic Island",
     type: "website",
-    url: "/crafts/dynamic-island",
     images: [
       {
         url: craftsMap["dynamic-island"].poster!,
-        alt: "Dynamic Island",
+        alt: "Dynamic Island craft by Daniel Gaievskyi",
         width: 1920,
         height: 1080,
       },
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: craftsMap["dynamic-island"].poster!,
-        alt: "Dynamic Island",
+        alt: "Dynamic Island craft by Daniel Gaievskyi",
         width: 1920,
         height: 1080,
       },
