@@ -44,7 +44,7 @@ jobs:
 
       - name: Run ESLint
         run: bun run lint
-        
+
   # Doens't work with bun yet,
   # See: https://github.com/oven-sh/bun/issues/25610
 

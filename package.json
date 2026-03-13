@@ -10,9 +10,9 @@
     "lint": "eslint src --cache --cache-location .cache/eslint/",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
-    "typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "typecheck": "tsc -p tsconfig.json --noEmit --emitDeclarationOnly false",
     "clean": "bun --bun scripts/clean.ts",
-    "sprite": "bun --bun scripts/build-sprite.ts",
+    "sprite": "bun --bun scripts/build-sprite.ts && printf '// @ts-nocheck\n' | cat - sprite.gen.ts > sprite.gen.ts.tmp && mv sprite.gen.ts.tmp sprite.gen.ts",
     "analyze": "next experimental-analyze",
     "inspect": "next dev --inspect"
   },

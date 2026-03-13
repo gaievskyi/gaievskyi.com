@@ -27,11 +27,19 @@
   "include": [
     "video.d.ts",
     "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
+    "reset.d.ts",
+    "payload-types.ts",
+    "next.config.ts",
+    "payload.config.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts",
-    "src/app/(payload)/admin/importMap.js"
+    ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules", "sprite.gen.ts"]
+  "exclude": [
+    "node_modules",
+    "sprite.gen.ts",
+    ".next/dev/types/validator.ts",
+    ".next/types/validator.ts"
+  ]
 }

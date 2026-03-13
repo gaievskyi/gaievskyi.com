@@ -48,6 +48,7 @@ export default defineConfig([
     },
   },
   globalIgnores([
+    "*.gen.ts",
     ".next/**",
     "out/**",
     "build/**",
