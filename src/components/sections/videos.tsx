@@ -22,18 +22,18 @@ export function Videos({ title, videos, basePath, itemLabel }: VideosProps) {
           {videoEntries.length}
         </Text>
       </Flex>
-      <Flex wrap="wrap" gap="md" className="group">
+      <div className="group grid grid-cols-1 gap-3 sm:grid-cols-2">
         {videoEntries.map(([slug, video]) => (
           <HapticLink
             key={slug}
             href={`/${basePath}/${slug}`}
             aria-label={`Explore ${itemLabel} ${slug}`}
-            className="video-link pointer-events-auto block flex-[1_1_calc(50%-0.375rem)] rounded-xl transition-opacity duration-300 ease-out group-hover:opacity-50 hover:opacity-100!"
+            className="video-link pointer-events-auto rounded-xl transition-opacity duration-300 ease-out group-hover:opacity-50 hover:opacity-100!"
           >
             <Video src={video} slug={slug} />
           </HapticLink>
         ))}
-      </Flex>
+      </div>
     </>
   )
 }

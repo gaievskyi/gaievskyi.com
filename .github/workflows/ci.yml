@@ -4,23 +4,23 @@ on:
   push:
     branches: [main]
     paths-ignore:
-      - '*.md'
-      - '.gitignore'
-      - '.cursor/**'
-      - '.agents/**'
-      - 'public/**'
-      - 'skills-lock.json'
-      - 'components.json'
+      - "*.md"
+      - ".gitignore"
+      - ".cursor/**"
+      - ".agents/**"
+      - "public/**"
+      - "skills-lock.json"
+      - "components.json"
   pull_request:
     branches: [main]
     paths-ignore:
-      - '*.md'
-      - '.gitignore'
-      - '.cursor/**'
-      - '.agents/**'
-      - 'public/**'
-      - 'skills-lock.json'
-      - 'components.json'
+      - "*.md"
+      - ".gitignore"
+      - ".cursor/**"
+      - ".agents/**"
+      - "public/**"
+      - "skills-lock.json"
+      - "components.json"
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
